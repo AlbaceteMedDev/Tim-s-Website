@@ -2,7 +2,6 @@ import Link from "next/link";
 import Emblem from "@/components/Emblem";
 import HeroPlate from "@/components/HeroPlate";
 import Reveal from "@/components/Reveal";
-import Stat from "@/components/Stat";
 import ServiceIcon from "@/components/ServiceIcon";
 import BoroughMap from "@/components/BoroughMap";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -51,7 +50,7 @@ export default function HomePage() {
         <div className="container hero-inner">
           <div>
             <Reveal>
-              <span className="hero-kicker">Now serving all five boroughs</span>
+              <p className="hero-note">Serving all five boroughs of New York City</p>
               <h1 className="hero-title">
                 {["Wound", "care", "that"].map((w, i) => (
                   <span key={w}>
@@ -71,10 +70,10 @@ export default function HomePage() {
                 </em>
               </h1>
               <p className="hero-lede">
-                Specialist-level treatment for chronic and complex wounds — delivered to
-                your home, anywhere in New York City. No waiting rooms, no travel, no
-                missed visits. Just healing, led personally by{" "}
-                <strong>{site.provider.fullTitle}</strong>.
+                <strong>{site.provider.fullTitle}</strong> brings the full capability of
+                an outpatient wound clinic to your bedside: assessment, debridement,
+                advanced dressings and follow-through, on a visit schedule that actually
+                holds. Every appointment in your home, anywhere in the city.
               </p>
               <div className="hero-actions">
                 <a href={`tel:${site.phoneHref}`} className="btn btn-primary btn-lg">
@@ -85,15 +84,9 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="hero-trust">
-                <span className="hero-trust-item">
-                  <Check /> Licensed PA · NPI {site.provider.npi}
-                </span>
-                <span className="hero-trust-item">
-                  <Check /> Medicare &amp; major plans
-                </span>
-                <span className="hero-trust-item">
-                  <Check /> Hospital-grade care at home
-                </span>
+                <span className="hero-trust-item">Licensed PA · NPI {site.provider.npi}</span>
+                <span className="hero-trust-item">Medicare &amp; major plans</span>
+                <span className="hero-trust-item">Hospital-grade care at home</span>
               </div>
             </Reveal>
           </div>
@@ -117,15 +110,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ CONDITIONS MARQUEE ============ */}
-      <div className="marquee" aria-hidden="true">
-        <div className="marquee-track">
-          {[...conditions, ...conditions].map((c, i) => (
-            <span key={i} className="marquee-item">
+      {/* ============ CONDITIONS INDEX STRIP ============ */}
+      <div className="index-strip">
+        <span className="index-strip-label">Treated in the home</span>
+        <p>
+          {conditions.map((c, i) => (
+            <span key={c}>
               {c}
+              {i < conditions.length - 1 && <em aria-hidden="true"> / </em>}
             </span>
           ))}
-        </div>
+        </p>
       </div>
 
       {/* ============ SERVICES ============ */}
@@ -135,9 +130,9 @@ export default function HomePage() {
             <span className="eyebrow">01 / What we treat</span>
             <h2 className="section-title">Complete wound care, without the wound center.</h2>
             <p className="section-lede">
-              Every service an outpatient wound clinic offers — assessment, debridement,
-              advanced dressings, compression, negative pressure therapy — performed at
-              your bedside by a dedicated specialist.
+              Assessment, debridement, advanced dressings, compression and negative
+              pressure therapy: every service an outpatient wound clinic offers,
+              performed at your bedside by a dedicated specialist.
             </p>
           </Reveal>
           <div className="grid-cards">
@@ -192,14 +187,6 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-          <Reveal>
-            <div className="stats-band">
-              <Stat value={5} label="Boroughs served" />
-              <Stat value={8} label="Wound care services" />
-              <Stat value={1} label="Dedicated specialist" />
-              <Stat value={0} label="Waiting rooms" />
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -210,7 +197,7 @@ export default function HomePage() {
             <span className="eyebrow">03 / Where we go</span>
             <h2 className="section-title">If it's in the five boroughs, it's a house call.</h2>
             <p className="section-lede">
-              Explore the map — Apollo Wound Care travels to every corner of New York
+              Explore the map. Apollo Wound Care travels to every corner of New York
               City, from Riverdale to Tottenville and Inwood to Far Rockaway.
             </p>
           </Reveal>
@@ -315,20 +302,5 @@ export default function HomePage() {
 
       <CTABand />
     </>
-  );
-}
-
-function Check() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.15" />
-      <path
-        d="m7 12.5 3.2 3L17 8.5"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }

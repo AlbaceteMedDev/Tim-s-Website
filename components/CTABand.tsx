@@ -4,8 +4,8 @@ import Reveal from "./Reveal";
 import { site } from "@/lib/site";
 
 export default function CTABand({
-  title = "Your wound won't wait. Neither do we.",
-  copy = `Speak directly with our team about your wound — or a loved one's — and we'll map out the first visit. Serving all five boroughs.`,
+  title = "Put a wound specialist on your doorstep this week.",
+  copy = `One phone call covers everything: the wound, your insurance, and the first visit date. Family members and referring providers are welcome to call on a patient's behalf.`,
 }: {
   title?: string;
   copy?: string;
