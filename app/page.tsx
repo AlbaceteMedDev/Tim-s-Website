@@ -2,6 +2,7 @@ import Link from "next/link";
 import Emblem from "@/components/Emblem";
 import HeroPlate from "@/components/HeroPlate";
 import Reveal from "@/components/Reveal";
+import Stat from "@/components/Stat";
 import ServiceIcon from "@/components/ServiceIcon";
 import BoroughMap from "@/components/BoroughMap";
 import FaqAccordion from "@/components/FaqAccordion";
@@ -84,9 +85,15 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="hero-trust">
-                <span className="hero-trust-item">Licensed PA · NPI {site.provider.npi}</span>
-                <span className="hero-trust-item">Medicare &amp; major plans</span>
-                <span className="hero-trust-item">Hospital-grade care at home</span>
+                <span className="hero-trust-item">
+                  <Check /> Licensed PA · NPI {site.provider.npi}
+                </span>
+                <span className="hero-trust-item">
+                  <Check /> Medicare &amp; major plans
+                </span>
+                <span className="hero-trust-item">
+                  <Check /> Hospital-grade care at home
+                </span>
               </div>
             </Reveal>
           </div>
@@ -110,17 +117,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ CONDITIONS INDEX STRIP ============ */}
-      <div className="index-strip">
-        <span className="index-strip-label">Treated in the home</span>
-        <p>
-          {conditions.map((c, i) => (
-            <span key={c}>
+      {/* ============ CASE-LEDGER TICKER ============ */}
+      <div className="ticker" aria-label="Conditions treated in the home">
+        <span className="ticker-label" aria-hidden="true">
+          Treated in the home
+        </span>
+        <div className="ticker-track" aria-hidden="true">
+          {[...conditions, ...conditions].map((c, i) => (
+            <span key={i} className="ticker-item">
+              <span className="ticker-idx">{String((i % conditions.length) + 1).padStart(2, "0")}</span>
               {c}
-              {i < conditions.length - 1 && <em aria-hidden="true"> / </em>}
+              <Suture />
             </span>
           ))}
-        </p>
+        </div>
+        <p className="visually-hidden">{conditions.join(", ")}</p>
       </div>
 
       {/* ============ SERVICES ============ */}
@@ -187,6 +198,14 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+          <Reveal>
+            <div className="stats-band">
+              <Stat value={5} label="Boroughs served" />
+              <Stat value={8} label="Wound care services" />
+              <Stat value={1} label="Dedicated specialist" />
+              <Stat value={0} label="Waiting rooms" />
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -302,5 +321,37 @@ export default function HomePage() {
 
       <CTABand />
     </>
+  );
+}
+
+function Check() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="11" fill="currentColor" opacity="0.15" />
+      <path
+        d="m7 12.5 3.2 3L17 8.5"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function Suture() {
+  return (
+    <svg
+      className="ticker-stitch"
+      width="34"
+      height="14"
+      viewBox="0 0 34 14"
+      fill="none"
+      aria-hidden="true"
+    >
+      <line x1="0" y1="7" x2="34" y2="7" stroke="currentColor" strokeWidth="1" />
+      <line x1="11" y1="2" x2="15" y2="12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <line x1="19" y1="2" x2="23" y2="12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
   );
 }
