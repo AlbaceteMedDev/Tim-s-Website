@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import Nav from "@/components/Nav";
+import ScrollProgress from "@/components/ScrollProgress";
+import BackToTop from "@/components/BackToTop";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
 import { boroughs } from "@/lib/boroughs";
@@ -134,9 +136,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
         />
+        <ScrollProgress />
         <Nav />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

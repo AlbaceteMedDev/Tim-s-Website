@@ -10,6 +10,8 @@ interface EmblemProps {
   casing?: string;
   size?: number | string;
   className?: string;
+  /** Play the draw-in entrance animation (ring draws, knot blooms, cross pops). */
+  entrance?: boolean;
 }
 
 /**
@@ -23,6 +25,7 @@ export default function Emblem({
   casing = "#F7F4EC",
   size = 48,
   className,
+  entrance = false,
 }: EmblemProps) {
   const loop = (deg: number, stroke: string, width: number) => (
     <rect
@@ -50,40 +53,48 @@ export default function Emblem({
       fill="none"
       width={size}
       height={size}
-      className={className}
+      className={`${className ?? ""} ${entrance ? "emblem-entrance" : ""}`.trim() || undefined}
       aria-hidden="true"
       focusable="false"
     >
       <path
+        className="e-ring"
         d="M156.94 18.51A108 108 0 1 1 83.06 18.51"
         stroke={strand}
         strokeWidth="5"
         strokeLinecap="round"
+        pathLength={1}
       />
-      <path
-        d="M0 0Q7 -10.1 0 -24Q-7 -10.1 0 0Z"
-        fill={strand}
-        transform="translate(120 26)"
-      />
-      <path
-        d="M0 0Q5.5 -8 0 -19Q-5.5 -8 0 0Z"
-        fill={accent}
-        transform="translate(112.5 27) rotate(-35)"
-      />
-      <path
-        d="M0 0Q5.5 -8 0 -19Q-5.5 -8 0 0Z"
-        fill={accent}
-        transform="translate(127.5 27) rotate(35)"
-      />
-      {loop(45, strand, 13)}
-      {loop(-45, casing, 23)}
-      {loop(-45, strand, 13)}
-      <g transform="rotate(45 120 120)">
-        {patches(casing, 23)}
-        {patches(strand, 13)}
+      <g className="e-leaves">
+        <path
+          d="M0 0Q7 -10.1 0 -24Q-7 -10.1 0 0Z"
+          fill={strand}
+          transform="translate(120 26)"
+        />
+        <path
+          d="M0 0Q5.5 -8 0 -19Q-5.5 -8 0 0Z"
+          fill={accent}
+          transform="translate(112.5 27) rotate(-35)"
+        />
+        <path
+          d="M0 0Q5.5 -8 0 -19Q-5.5 -8 0 0Z"
+          fill={accent}
+          transform="translate(127.5 27) rotate(35)"
+        />
       </g>
-      <rect x="115" y="107" width="10" height="26" rx="5" fill={accent} />
-      <rect x="107" y="115" width="26" height="10" rx="5" fill={accent} />
+      <g className="e-knot">
+        {loop(45, strand, 13)}
+        {loop(-45, casing, 23)}
+        {loop(-45, strand, 13)}
+        <g transform="rotate(45 120 120)">
+          {patches(casing, 23)}
+          {patches(strand, 13)}
+        </g>
+      </g>
+      <g className="e-cross">
+        <rect x="115" y="107" width="10" height="26" rx="5" fill={accent} />
+        <rect x="107" y="115" width="26" height="10" rx="5" fill={accent} />
+      </g>
     </svg>
   );
 }

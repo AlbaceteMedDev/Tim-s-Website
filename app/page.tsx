@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Emblem from "@/components/Emblem";
+import HeroPlate from "@/components/HeroPlate";
 import Reveal from "@/components/Reveal";
 import Stat from "@/components/Stat";
 import ServiceIcon from "@/components/ServiceIcon";
@@ -52,7 +53,22 @@ export default function HomePage() {
             <Reveal>
               <span className="hero-kicker">Now serving all five boroughs</span>
               <h1 className="hero-title">
-                Wound care that <em>comes to you.</em>
+                {["Wound", "care", "that"].map((w, i) => (
+                  <span key={w}>
+                    <span className="hw" style={{ "--wi": i } as React.CSSProperties}>
+                      {w}
+                    </span>{" "}
+                  </span>
+                ))}
+                <em>
+                  {["comes", "to", "you."].map((w, i) => (
+                    <span key={w}>
+                      <span className="hw" style={{ "--wi": i + 3 } as React.CSSProperties}>
+                        {w}
+                      </span>{" "}
+                    </span>
+                  ))}
+                </em>
               </h1>
               <p className="hero-lede">
                 Specialist-level treatment for chronic and complex wounds — delivered to
@@ -83,8 +99,9 @@ export default function HomePage() {
           </div>
 
           <Reveal delay={0.15} className="hero-figure">
+            <HeroPlate>
             <div className="hero-figure-ring">
-              <Emblem size="58%" strand="#F7F4EC" accent="#D8B96E" casing="#0B2E1F" />
+              <Emblem size="58%" strand="#F7F4EC" accent="#D8B96E" casing="#0B2E1F" entrance />
               <div className="plate-row plate-row-top" aria-hidden="true">
                 <span>Fig. 01 — The Healing Knot</span>
                 <span>Est. NYC</span>
@@ -93,7 +110,9 @@ export default function HomePage() {
                 <span>{site.provider.fullTitle}</span>
                 <span>NPI {site.provider.npi}</span>
               </div>
+              <div className="plate-glare" aria-hidden="true" />
             </div>
+            </HeroPlate>
           </Reveal>
         </div>
       </section>

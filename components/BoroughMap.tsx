@@ -20,6 +20,23 @@ export default function BoroughMap() {
           role="group"
           aria-label="Map of New York City's five boroughs — all served by Apollo Wound Care"
         >
+          {/* water panel + graticule */}
+          <g aria-hidden="true">
+            <rect x="4" y="4" width="462" height="422" rx="4" className="map-water" />
+            <g className="map-grid">
+              {[1, 2, 3].map((i) => (
+                <line key={`v${i}`} x1={4 + i * 115.5} y1="4" x2={4 + i * 115.5} y2="426" />
+              ))}
+              {[1, 2, 3].map((i) => (
+                <line key={`h${i}`} x1="4" y1={4 + i * 105.5} x2="466" y2={4 + i * 105.5} />
+              ))}
+            </g>
+            <rect x="4" y="4" width="462" height="422" rx="4" className="map-frame" />
+            <text x="450" y="416" textAnchor="end" className="map-caption">
+              NEW YORK CITY — SERVICE COVERAGE
+            </text>
+          </g>
+
           {/* cartographic flourish: north arrow */}
           <g className="map-compass" aria-hidden="true" transform="translate(38 44)">
             <line x1="0" y1="14" x2="0" y2="-12" />
