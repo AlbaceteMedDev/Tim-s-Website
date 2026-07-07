@@ -57,7 +57,7 @@ export default function OgImage() {
           <div style={{ marginTop: 36, fontSize: 32, color: "rgba(247,244,236,0.75)" }}>
             Expert wound care, delivered to your door.
           </div>
-          <div style={{ marginTop: 18, fontSize: 26, color: GOLD }}>
+          <div style={{ marginTop: 18, fontSize: 22, color: GOLD, whiteSpace: "nowrap" }}>
             Manhattan · Brooklyn · Queens · The Bronx · Staten Island
           </div>
         </div>
