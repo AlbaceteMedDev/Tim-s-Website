@@ -3,9 +3,7 @@
 Marketing site for **Apollo Wound Care**, the mobile wound care practice of
 **Timothy Donoho, PA** (NPI 1407323421), serving all five boroughs of New York City.
 
-**Live now:** https://tim-s-website.vercel.app — when the production domain
-is purchased, connect it in Vercel and update `url` in `lib/site.ts` (or set
-`NEXT_PUBLIC_SITE_URL`).
+**Live at https://www.apollowoundcare.com** (Vercel; apex redirects to www).
 
 Built with Next.js (App Router) + hand-crafted CSS. No UI framework — the design
 system, logo and every illustration are bespoke to this brand.
