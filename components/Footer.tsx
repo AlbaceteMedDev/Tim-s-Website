@@ -4,6 +4,7 @@ import StitchDivider from "./StitchDivider";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { boroughs } from "@/lib/boroughs";
+import { technologies } from "@/lib/technology";
 
 export default function Footer() {
   return (
@@ -36,6 +37,16 @@ export default function Footer() {
               {b.name}
             </Link>
           ))}
+        </nav>
+
+        <nav className="footer-col" aria-label="Technology">
+          <h3>Technology</h3>
+          {technologies.map((t) => (
+            <Link key={t.slug} href={`/technology/${t.slug}`}>
+              {t.shortName}
+            </Link>
+          ))}
+          <Link href="/non-healing-wounds">Non-Healing Wounds</Link>
         </nav>
 
         <nav className="footer-col" aria-label="Practice">

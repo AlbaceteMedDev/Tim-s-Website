@@ -138,7 +138,15 @@ export default async function ServicePage({ params }: Props) {
                 Request a Visit
               </Link>
               <div className="aside-links">
-                <strong style={{ fontSize: "var(--text-xs)", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--gold)" }}>
+                <strong style={{ fontSize: "var(--text-xs)", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--ochre)" }}>
+                  Not healing?
+                </strong>
+                <Link href="/non-healing-wounds">
+                  See our non-healing wound program →
+                </Link>
+              </div>
+              <div className="aside-links">
+                <strong style={{ fontSize: "var(--text-xs)", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--ochre)" }}>
                   Serving
                 </strong>
                 {boroughs.map((b) => (

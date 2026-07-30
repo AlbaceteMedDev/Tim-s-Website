@@ -7,6 +7,7 @@ import CTABand from "@/components/CTABand";
 import StitchDivider from "@/components/StitchDivider";
 import { boroughs, getBorough } from "@/lib/boroughs";
 import { services } from "@/lib/services";
+import { technologies } from "@/lib/technology";
 import { site } from "@/lib/site";
 
 interface Props {
@@ -94,6 +95,44 @@ export default async function BoroughPage({ params }: Props) {
                 {services.map((s) => (
                   <Link key={s.slug} href={`/services/${s.slug}`}>
                     {s.shortName} →
+                  </Link>
+                ))}
+              </div>
+            </aside>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Complex & non-healing wounds — local intent + link into the pillar */}
+      <section className="section section-night">
+        <div className="container grid-2">
+          <Reveal>
+            <span className="eyebrow">Complex &amp; non-healing wounds</span>
+            <h2 className="section-title">
+              A wound that won&apos;t heal in {borough.name}?
+            </h2>
+            <p className="section-lede">
+              When a wound in {borough.name} has stalled for weeks or months, Apollo Wound
+              Care brings advanced technology to the bedside — non-contact UltraMIST®
+              ultrasound, amniotic allografts, antimicrobial matrix and collagen — matched
+              to the reason it stopped closing.
+            </p>
+            <div className="hero-actions">
+              <Link href="/non-healing-wounds" className="btn btn-gold">
+                Our non-healing wound program
+              </Link>
+              <Link href="/technology" className="btn btn-ghost">
+                See the technology
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <aside className="aside-card" style={{ position: "static" }}>
+              <h3>Advanced modalities in {borough.name}</h3>
+              <div className="aside-links">
+                {technologies.map((t) => (
+                  <Link key={t.slug} href={`/technology/${t.slug}`}>
+                    {t.shortName} →
                   </Link>
                 ))}
               </div>

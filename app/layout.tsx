@@ -134,7 +134,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </noscript>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              organizationJsonLd(),
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "@id": `${site.url}/#website`,
+                name: site.name,
+                url: site.url,
+                publisher: { "@id": `${site.url}/#organization` },
+                inLanguage: "en-US",
+              },
+            ]),
+          }}
         />
         <ScrollProgress />
         <Nav />

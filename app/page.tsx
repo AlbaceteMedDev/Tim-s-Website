@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import Stat from "@/components/Stat";
 import ServiceIcon from "@/components/ServiceIcon";
 import BoroughMap from "@/components/BoroughMap";
+import DeviceShowcase from "@/components/DeviceShowcase";
 import FaqAccordion from "@/components/FaqAccordion";
 import CTABand from "@/components/CTABand";
 import StitchDivider from "@/components/StitchDivider";
@@ -268,11 +269,49 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ============ TECHNOLOGY SHOWCASE ============ */}
+      <section className="section section-night tech-showcase">
+        <div className="container tech-showcase-inner">
+          <Reveal>
+            <span className="eyebrow">05 / Advanced technology</span>
+            <h2 className="section-title">When standard care stalls, we escalate.</h2>
+            <p className="section-lede">
+              A non-healing wound needs more than another dressing. Apollo Wound Care
+              carries hospital-grade modalities to the bedside — including
+              <strong> UltraMIST® non-contact ultrasound</strong>, amniotic allografts,
+              antimicrobial silver matrix, and Type I collagen — matched to the reason
+              your wound stopped closing.
+            </p>
+            <div className="tech-showcase-stats">
+              <div>
+                <b>40 kHz</b>
+                <span>painless non-contact ultrasound</span>
+              </div>
+              <div>
+                <b>4</b>
+                <span>advanced platforms, one care plan</span>
+              </div>
+            </div>
+            <div className="hero-actions">
+              <Link href="/technology" className="btn btn-gold btn-lg">
+                Explore the technology
+              </Link>
+              <Link href="/non-healing-wounds" className="btn btn-ghost btn-lg">
+                Have a wound that won't heal?
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delay={0.12} className="tech-showcase-figure">
+            <DeviceShowcase />
+          </Reveal>
+        </div>
+      </section>
+
       {/* ============ DIFFERENCE ============ */}
       <section className="section">
         <div className="container">
           <Reveal>
-            <span className="eyebrow">05 / The Apollo standard</span>
+            <span className="eyebrow">06 / The Apollo standard</span>
             <h2 className="section-title">Why house calls heal faster.</h2>
           </Reveal>
           <div className="pillars">
@@ -294,7 +333,7 @@ export default function HomePage() {
         <div className="container">
           <div className="faq-home">
             <Reveal className="faq-home-intro">
-              <span className="eyebrow">06 / Questions, answered</span>
+              <span className="eyebrow">07 / Questions, answered</span>
               <h2 className="section-title">Everything families ask us first.</h2>
               <p>
                 Straight answers on insurance, referrals, and what actually happens at

@@ -7,6 +7,7 @@ import Logo from "./Logo";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { boroughs } from "@/lib/boroughs";
+import { technologies } from "@/lib/technology";
 
 interface MenuGroup {
   label: string;
@@ -36,9 +37,20 @@ const groups: MenuGroup[] = [
     })),
     footer: { href: "/service-areas", label: "All service areas" },
   },
+  {
+    label: "Technology",
+    href: "/technology",
+    items: technologies.map((t) => ({
+      href: `/technology/${t.slug}`,
+      label: t.shortName,
+      hint: t.category,
+    })),
+    footer: { href: "/technology", label: "All technology" },
+  },
 ];
 
 const singles = [
+  { href: "/non-healing-wounds", label: "Non-Healing Wounds" },
   { href: "/about", label: "About Tim" },
   { href: "/faq", label: "FAQ" },
 ];

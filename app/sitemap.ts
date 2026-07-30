@@ -4,6 +4,7 @@ export const dynamic = "force-static";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { boroughs } from "@/lib/boroughs";
+import { technologies } from "@/lib/technology";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -15,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/about`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.url}/contact`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${site.url}/faq`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${site.url}/technology`, lastModified, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${site.url}/non-healing-wounds`, lastModified, changeFrequency: "monthly", priority: 0.95 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = services.map((s) => ({
@@ -31,5 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  return [...staticPages, ...servicePages, ...boroughPages];
+  const techPages: MetadataRoute.Sitemap = technologies.map((t) => ({
+    url: `${site.url}/technology/${t.slug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...servicePages, ...boroughPages, ...techPages];
 }
