@@ -114,8 +114,8 @@ export default async function BoroughPage({ params }: Props) {
             <p className="section-lede">
               When a wound in {borough.name} has stalled for weeks or months, Apollo Wound
               Care brings advanced technology to the bedside — non-contact UltraMIST®
-              ultrasound, amniotic allografts, antimicrobial matrix and collagen — matched
-              to the reason it stopped closing.
+              ultrasound, amniotic allografts and antimicrobial matrix — matched to the
+              reason it stopped closing.
             </p>
             <div className="hero-actions">
               <Link href="/non-healing-wounds" className="btn btn-gold">

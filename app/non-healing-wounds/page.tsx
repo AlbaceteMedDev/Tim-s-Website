@@ -11,7 +11,7 @@ import { boroughs } from "@/lib/boroughs";
 export const metadata: Metadata = {
   title: "Non-Healing & Chronic Wound Care at Home in NYC",
   description:
-    "A wound that won't heal is a stalled wound — and it needs a different plan. Apollo Wound Care treats complex, chronic and non-healing ulcers at home across NYC with advanced modalities: UltraMIST® ultrasound, amniotic allografts, antimicrobial matrix and collagen. Led by Timothy Donoho, PA.",
+    "A wound that won't heal is a stalled wound — and it needs a different plan. Apollo Wound Care treats complex, chronic and non-healing ulcers at home across NYC with advanced modalities: UltraMIST® ultrasound, amniotic allografts and antimicrobial matrix. Led by Timothy Donoho, PA.",
   alternates: { canonical: "/non-healing-wounds" },
   keywords: [
     "non-healing wound treatment NYC",
@@ -85,7 +85,7 @@ export default function NonHealingWoundsPage() {
         name: "Can a non-healing wound be treated at home?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Apollo Wound Care treats complex and non-healing wounds in the home across all five NYC boroughs, bringing the same advanced modalities used in outpatient wound centers — including non-contact UltraMIST ultrasound, amniotic allografts, antimicrobial matrix and collagen — directly to the patient, and coordinating with your existing physicians.",
+          text: "Yes. Apollo Wound Care treats complex and non-healing wounds in the home across all five NYC boroughs, bringing the same advanced modalities used in outpatient wound centers — including non-contact UltraMIST ultrasound, amniotic allografts and antimicrobial matrix — directly to the patient, and coordinating with your existing physicians.",
         },
       },
     ],

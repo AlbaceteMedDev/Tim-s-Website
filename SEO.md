@@ -29,7 +29,7 @@ Everything below is either already built into the site or is a prioritized next 
 - **Local cluster:** 5 borough pages (`/service-areas/*`) with unique local copy +
   neighborhood lists.
 - **Technology cluster:** `/technology` + 4 modality pages (UltraMIST®, amniotic allografts,
-  antimicrobial matrix, collagen) — differentiators competitors rarely explain.
+  antimicrobial matrix) — differentiators competitors rarely explain.
 - Dense internal linking: pillar → technology → borough → service and back.
 
 ---

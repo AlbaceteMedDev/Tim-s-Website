@@ -183,11 +183,11 @@ export const services: Service[] = [
     teaser:
       "Wound VAC (NPWT) management, cellular tissue products and advanced modalities — hospital-grade care in the home.",
     intro:
-      "Modern wound care goes far beyond gauze. Apollo Wound Care manages negative pressure wound therapy (wound VACs) in the home, applies cellular and tissue-based products (skin substitutes) to qualifying wounds, and matches advanced antimicrobial and collagen dressings to each wound's biology. If your wound needs hospital-grade technology, you shouldn't need a hospital bed to get it.",
+      "Modern wound care goes far beyond gauze. Apollo Wound Care manages negative pressure wound therapy (wound VACs) in the home, applies cellular and tissue-based products (skin substitutes) to qualifying wounds, and matches advanced antimicrobial and specialty dressings to each wound's biology. If your wound needs hospital-grade technology, you shouldn't need a hospital bed to get it.",
     visitIncludes: [
       "Negative pressure wound therapy (wound VAC) application and canister/dressing changes",
       "Cellular and tissue-based product (skin substitute) application for qualifying wounds",
-      "Advanced antimicrobial, collagen and foam dressing systems",
+      "Advanced antimicrobial and foam dressing systems",
       "Therapy troubleshooting — alarms, leaks, seal issues",
       "Insurance documentation for advanced modality coverage",
       "Outcome tracking with photographic documentation",

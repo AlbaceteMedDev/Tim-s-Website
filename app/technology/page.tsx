@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Advanced Wound-Healing Technology in NYC",
   description:
-    "The advanced modalities Apollo Wound Care brings to the bedside for complex and non-healing wounds: non-contact UltraMIST® ultrasound, amniotic allografts, antimicrobial silver matrix, and Type I collagen — with the science behind each.",
+    "The advanced modalities Apollo Wound Care brings to the bedside for complex and non-healing wounds: non-contact UltraMIST® ultrasound, amniotic allografts, and antimicrobial silver matrix — with the science behind each.",
   alternates: { canonical: "/technology" },
 };
 
@@ -17,7 +17,7 @@ const headline = [
   { value: "40 kHz", label: "non-contact ultrasound to the wound bed" },
   { value: "25+", label: "growth factors in placental allografts" },
   { value: "99.99%", label: "antimicrobial matrix kill efficacy" },
-  { value: "30×", label: "MMP activity a collagen program targets" },
+  { value: "91%", label: "refractory wounds healed or improved at 12 weeks" },
 ];
 
 export default function TechnologyPage() {
@@ -89,7 +89,7 @@ export default function TechnologyPage() {
         <div className="container">
           <Reveal>
             <span className="eyebrow">The toolkit</span>
-            <h2 className="section-title">Four platforms, four failure points.</h2>
+            <h2 className="section-title">Three platforms, three failure points.</h2>
           </Reveal>
           <div className="tech-list">
             {technologies.map((t, i) => (

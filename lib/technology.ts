@@ -41,13 +41,17 @@ export interface Technology {
   name: string;
   /** Trademark/manufacturer attribution line. */
   attribution: string;
-  category: "Ultrasound therapy" | "Biologic graft" | "Antimicrobial" | "Collagen";
+  category: "Ultrasound therapy" | "Biologic graft" | "Antimicrobial";
   /** One-line teaser for cards + meta. */
   teaser: string;
   /** Lead paragraph. */
   intro: string;
   /** Hero image in /public, if any. */
   image?: string;
+  /** Hero video loop in /public, if any (used in the dark product hero). */
+  video?: string;
+  /** Poster image for the video. */
+  poster?: string;
   featured?: boolean;
   effects?: Effect[];
   specs?: Spec[];
@@ -70,6 +74,8 @@ export const technologies: Technology[] = [
     intro:
       "UltraMIST delivers low-energy, low-frequency (40 kHz) ultrasound to the wound bed through a gentle saline mist — without ever touching the wound surface. The acoustic waves mechanically stimulate cells in and below the wound, supporting the body's natural healing cascade. Because nothing contacts the wound, treatment is painless, which makes it especially suited to sensitive wounds and patients who can't tolerate contact-based therapies. Apollo Wound Care brings UltraMIST to the home as an adjunct to your wound-care plan when standard care has stalled.",
     image: "/ultramist-device.webp",
+    video: "/ultramist-loop.mp4",
+    poster: "/ultramist-device.webp",
     featured: true,
     effects: [
       {
@@ -114,6 +120,7 @@ export const technologies: Technology[] = [
     category: "Biologic graft",
     teaser:
       "A biological scaffold carrying 25+ growth factors that helps reset wounds stuck in chronic inflammation.",
+    video: "/amniotic-loop.mp4",
     intro:
       "Some wounds stall because the local environment has run out of the signals healthy tissue needs to rebuild. Human placental (amniotic membrane) allografts place a natural, growth-factor-rich scaffold directly on the wound — over 25 growth factors, anti-inflammatory cytokines and native extracellular matrix — to help move a stalled wound from chronic inflammation back into active repair. Grafts range from a single-layer entry option to a tri-layer construct for the most recalcitrant wounds.",
     stats: [
@@ -137,6 +144,7 @@ export const technologies: Technology[] = [
     category: "Antimicrobial",
     teaser:
       "An ultra-thin conforming film that clears wound bacteria at a fraction of conventional silver — then resorbs, so removal never disrupts new tissue.",
+    video: "/microlyte-loop.mp4",
     intro:
       "Infection and biofilm keep many chronic wounds locked in inflammation. Microlyte SAM is an ultra-thin, bioresorbable film that conforms to the wound's micro-contours for full surface contact, delivering effective antimicrobial protection using 50–100× less silver than conventional silver dressings — below the threshold that harms the very cells trying to heal. Because it resorbs, there is no dressing to peel away and no removal trauma to fragile new tissue.",
     stats: [
@@ -151,29 +159,6 @@ export const technologies: Technology[] = [
     ],
     footnote:
       "FDA cleared. Clinical figures: Manning (n=32), refractory wounds, mean 40 weeks stalled. Applicability and coverage are determined at clinical assessment.",
-  },
-  {
-    slug: "collagen-program",
-    shortName: "Collagen Program",
-    name: "Type I Collagen Program",
-    attribution: "Advanced collagen dressing systems · applied by Apollo Wound Care",
-    category: "Collagen",
-    teaser:
-      "A sacrificial collagen substrate that redirects the enzymes destroying a chronic wound, letting healing finally move forward.",
-    intro:
-      "Chronic wounds overproduce enzymes (MMPs) — at up to 30× normal levels — that chew up the growth factors and matrix a wound needs to close. Advanced Type I collagen dressings act as a sacrificial substrate: the enzymes attack the applied collagen instead of the wound's own tissue, restoring balance and letting the wound transition from stalled inflammation into active proliferation. As it breaks down it also releases signals that recruit repair cells.",
-    stats: [
-      { value: "30×", label: "MMP activity in chronic vs. acute wounds" },
-      { value: "53%", label: "higher healing rate (meta-analysis)", source: "n=961" },
-      { value: "82%", label: "complete diabetic-foot-ulcer healing (RCT)" },
-    ],
-    patient: [
-      "A collagen dressing that helps break the chemical stalemate in a stuck wound.",
-      "Used for full-thickness wounds or wounds stalled longer than four weeks.",
-      "Works with the rest of your care plan to push healing forward.",
-    ],
-    footnote:
-      "Clinical figures: 53% higher healing rate (meta-analysis, n=961); 82% complete DFU healing (RCT). Applicability determined at clinical assessment.",
   },
 ];
 

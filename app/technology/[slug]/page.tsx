@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
@@ -37,7 +35,7 @@ export default async function TechnologyDetail({ params }: Props) {
   if (!t) notFound();
 
   const isUltra = t.slug === "ultramist-ultrasound-therapy";
-  const hasVideo = existsSync(join(process.cwd(), "public", "ultramist-loop.mp4"));
+  const hasHeroMedia = Boolean(t.video || t.image);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -74,7 +72,7 @@ export default async function TechnologyDetail({ params }: Props) {
       />
 
       {/* ===== Hero ===== */}
-      <section className={`tech-hero ${isUltra ? "tech-hero-dark" : ""}`}>
+      <section className={`tech-hero ${hasHeroMedia ? "tech-hero-dark" : ""}`}>
         <div className="container tech-hero-inner">
           <div>
             <nav className="breadcrumbs" aria-label="Breadcrumb">
@@ -99,7 +97,17 @@ export default async function TechnologyDetail({ params }: Props) {
           </div>
           {isUltra && (
             <div className="tech-hero-figure">
-              <DeviceShowcase hasVideo={hasVideo} />
+              <DeviceShowcase hasVideo={Boolean(t.video)} />
+            </div>
+          )}
+          {!isUltra && t.video && (
+            <div className="tech-hero-figure">
+              <figure className="mech-video">
+                <video autoPlay muted loop playsInline poster={t.poster}>
+                  <source src={t.video} type="video/mp4" />
+                </video>
+                <figcaption>Illustrative mechanism animation</figcaption>
+              </figure>
             </div>
           )}
         </div>
