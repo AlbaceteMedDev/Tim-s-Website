@@ -56,7 +56,7 @@ export default function DeviceShowcase({ hasVideo = false }: { hasVideo?: boolea
           muted
           loop
           playsInline
-          poster="/ultramist-device.webp"
+          poster="/ultramist-poster.jpg"
         >
           <source src="/ultramist-loop.mp4" type="video/mp4" />
         </video>
