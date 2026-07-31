@@ -2015,21 +2015,25 @@
 .grid-2-top { align-items: start; }
 
 
-/* ---- mechanism video figure (amniotic / microlyte heroes) ---- */
+/* ---- mechanism video figure (amniotic / microlyte heroes) ----
+   Shares the product-window frame used by .device so every technology hero
+   reads as the same component. */
 .mech-video {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lift), 0 0 0 1px var(--line-inv);
+  border: 1px solid var(--line-inv);
+  background:
+    radial-gradient(ellipse at center, rgba(214, 160, 58, 0.10) 0%, transparent 55%),
+    linear-gradient(155deg, var(--forest-deep) 0%, var(--forest-night) 100%);
 }
 
 .mech-video video {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1 / 1; /* loops are 720×720 — reserve the box before frames arrive */
+  aspect-ratio: 1 / 1; /* square loops — reserve the box before frames arrive */
   object-fit: cover;
-  background: var(--forest-night);
 }
 
 .mech-video figcaption {
