@@ -4,23 +4,24 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 /**
- * UltraMIST device showcase. Prefers a generated product motion loop
- * (/ultramist-loop.mp4) when present; otherwise shows the device still with a
- * cursor-tracking parallax float and a drifting saline-mist particle layer.
+ * UltraMIST device showcase. When a motion loop is available, browsers that
+ * render transparent video (VP9 WebM with alpha) get the loop floating
+ * directly on the hero background. Safari ignores WebM alpha, so it — and the
+ * pre-hydration render — gets the transparent device still with the parallax
+ * float. Both variants share the CSS glow, spec ticks and mist layer, so the
+ * showcase always blends into the page.
  */
 export default function DeviceShowcase({ hasVideo = false }: { hasVideo?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const raf = useRef(0);
   const [reduced, setReduced] = useState(false);
-  const [videoSrc, setVideoSrc] = useState<string | null>(null);
+  const [useVideo, setUseVideo] = useState(false);
 
   useEffect(() => {
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-    // Safari ignores the alpha channel in VP9 WebM, so it gets an MP4 with the
-    // hero background baked in; everyone else gets the true-transparency WebM.
     const ua = navigator.userAgent;
     const isSafari = /safari/i.test(ua) && !/chrome|chromium|crios|edg|android/i.test(ua);
-    setVideoSrc(isSafari ? "/ultramist-loop.mp4" : "/ultramist-loop.webm");
+    setUseVideo(!isSafari);
   }, []);
 
   function onMove(e: React.MouseEvent) {
@@ -46,6 +47,8 @@ export default function DeviceShowcase({ hasVideo = false }: { hasVideo?: boolea
     el.style.setProperty("--tx", "0px");
   }
 
+  const showLoop = hasVideo && useVideo;
+
   return (
     <div className="device" ref={ref} onMouseMove={onMove} onMouseLeave={onLeave}>
       <div className="device-glow" aria-hidden="true" />
@@ -55,10 +58,9 @@ export default function DeviceShowcase({ hasVideo = false }: { hasVideo?: boolea
         <span>FDA CLEARED</span>
       </div>
 
-      {hasVideo ? (
-        <div className="device-float">
+      <div className="device-float">
+        {showLoop ? (
           <video
-            key={videoSrc ?? "poster"}
             className="device-media"
             autoPlay
             muted
@@ -66,23 +68,9 @@ export default function DeviceShowcase({ hasVideo = false }: { hasVideo?: boolea
             playsInline
             poster="/ultramist-poster.png"
           >
-            {videoSrc && (
-              <source
-                src={videoSrc}
-                type={videoSrc.endsWith(".webm") ? "video/webm" : "video/mp4"}
-              />
-            )}
+            <source src="/ultramist-loop.webm" type="video/webm" />
           </video>
-          {!reduced && (
-            <div className="device-mist" aria-hidden="true">
-              {Array.from({ length: 16 }).map((_, i) => (
-                <span key={i} style={{ "--i": i } as React.CSSProperties} />
-              ))}
-            </div>
-          )}
-        </div>
-      ) : (
-        <div className="device-float">
+        ) : (
           <Image
             src="/ultramist-device.webp"
             alt="UltraMIST handheld low-frequency ultrasound wound-therapy device"
@@ -91,15 +79,15 @@ export default function DeviceShowcase({ hasVideo = false }: { hasVideo?: boolea
             className="device-media"
             priority
           />
-          {!reduced && (
-            <div className="device-mist" aria-hidden="true">
-              {Array.from({ length: 16 }).map((_, i) => (
-                <span key={i} style={{ "--i": i } as React.CSSProperties} />
-              ))}
-            </div>
-          )}
-        </div>
-      )}
+        )}
+        {!reduced && (
+          <div className="device-mist" aria-hidden="true">
+            {Array.from({ length: 16 }).map((_, i) => (
+              <span key={i} style={{ "--i": i } as React.CSSProperties} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

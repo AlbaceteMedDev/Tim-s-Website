@@ -74,7 +74,7 @@ export const technologies: Technology[] = [
     intro:
       "UltraMIST delivers low-energy, low-frequency (40 kHz) ultrasound to the wound bed through a gentle saline mist — without ever touching the wound surface. The acoustic waves mechanically stimulate cells in and below the wound, supporting the body's natural healing cascade. Because nothing contacts the wound, treatment is painless, which makes it especially suited to sensitive wounds and patients who can't tolerate contact-based therapies. Apollo Wound Care brings UltraMIST to the home as an adjunct to your wound-care plan when standard care has stalled.",
     image: "/ultramist-device.webp",
-    video: "/ultramist-loop.mp4",
+    video: "/ultramist-loop.webm",
     poster: "/ultramist-poster.png",
     featured: true,
     effects: [

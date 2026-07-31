@@ -1695,7 +1695,18 @@
   filter: drop-shadow(0 30px 50px rgba(8, 24, 16, 0.55));
 }
 
-video.device-media { border-radius: var(--radius-lg); }
+/* The loop's cutout runs to the frame edge, so fade the last few percent —
+   otherwise the video's rectangular boundary reads as a hard crop line. */
+video.device-media {
+  mask-image:
+    linear-gradient(to bottom, #000 78%, transparent 99%),
+    linear-gradient(to right, #000 88%, transparent 99%);
+  mask-composite: intersect;
+  -webkit-mask-image:
+    linear-gradient(to bottom, #000 78%, transparent 99%),
+    linear-gradient(to right, #000 88%, transparent 99%);
+  -webkit-mask-composite: source-in;
+}
 
 .device-mist {
   position: absolute;
