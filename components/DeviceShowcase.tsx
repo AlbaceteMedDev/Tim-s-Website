@@ -12,9 +12,15 @@ export default function DeviceShowcase({ hasVideo = false }: { hasVideo?: boolea
   const ref = useRef<HTMLDivElement>(null);
   const raf = useRef(0);
   const [reduced, setReduced] = useState(false);
+  const [videoSrc, setVideoSrc] = useState<string | null>(null);
 
   useEffect(() => {
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    // Safari ignores the alpha channel in VP9 WebM, so it gets an MP4 with the
+    // hero background baked in; everyone else gets the true-transparency WebM.
+    const ua = navigator.userAgent;
+    const isSafari = /safari/i.test(ua) && !/chrome|chromium|crios|edg|android/i.test(ua);
+    setVideoSrc(isSafari ? "/ultramist-loop.mp4" : "/ultramist-loop.webm");
   }, []);
 
   function onMove(e: React.MouseEvent) {
@@ -50,16 +56,31 @@ export default function DeviceShowcase({ hasVideo = false }: { hasVideo?: boolea
       </div>
 
       {hasVideo ? (
-        <video
-          className="device-media"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/ultramist-poster.jpg"
-        >
-          <source src="/ultramist-loop.mp4" type="video/mp4" />
-        </video>
+        <div className="device-float">
+          <video
+            key={videoSrc ?? "poster"}
+            className="device-media"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/ultramist-poster.png"
+          >
+            {videoSrc && (
+              <source
+                src={videoSrc}
+                type={videoSrc.endsWith(".webm") ? "video/webm" : "video/mp4"}
+              />
+            )}
+          </video>
+          {!reduced && (
+            <div className="device-mist" aria-hidden="true">
+              {Array.from({ length: 16 }).map((_, i) => (
+                <span key={i} style={{ "--i": i } as React.CSSProperties} />
+              ))}
+            </div>
+          )}
+        </div>
       ) : (
         <div className="device-float">
           <Image
