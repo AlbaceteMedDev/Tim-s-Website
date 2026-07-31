@@ -50,7 +50,9 @@ export interface Technology {
   image?: string;
   /** Hero video loop in /public, if any (used in the dark product hero). */
   video?: string;
-  /** Poster image for the video. */
+  /** Optional H.264 fallback for browsers without VP9/WebM support. */
+  videoFallback?: string;
+  /** Poster image for the video — shown while it loads, so the frame is never blank. */
   poster?: string;
   featured?: boolean;
   effects?: Effect[];
@@ -120,7 +122,9 @@ export const technologies: Technology[] = [
     category: "Biologic graft",
     teaser:
       "A biological scaffold carrying 25+ growth factors that helps reset wounds stuck in chronic inflammation.",
-    video: "/amniotic-loop.mp4",
+    video: "/amniotic-loop.webm",
+    videoFallback: "/amniotic-loop.mp4",
+    poster: "/amniotic-poster.jpg",
     intro:
       "Some wounds stall because the local environment has run out of the signals healthy tissue needs to rebuild. Human placental (amniotic membrane) allografts place a natural, growth-factor-rich scaffold directly on the wound — over 25 growth factors, anti-inflammatory cytokines and native extracellular matrix — to help move a stalled wound from chronic inflammation back into active repair. Grafts range from a single-layer entry option to a tri-layer construct for the most recalcitrant wounds.",
     stats: [
@@ -144,7 +148,9 @@ export const technologies: Technology[] = [
     category: "Antimicrobial",
     teaser:
       "An ultra-thin conforming film that clears wound bacteria at a fraction of conventional silver — then resorbs, so removal never disrupts new tissue.",
-    video: "/microlyte-loop.mp4",
+    video: "/microlyte-loop.webm",
+    videoFallback: "/microlyte-loop.mp4",
+    poster: "/microlyte-poster.jpg",
     intro:
       "Infection and biofilm keep many chronic wounds locked in inflammation. Microlyte SAM is an ultra-thin, bioresorbable film that conforms to the wound's micro-contours for full surface contact, delivering effective antimicrobial protection using 50–100× less silver than conventional silver dressings — below the threshold that harms the very cells trying to heal. Because it resorbs, there is no dressing to peel away and no removal trauma to fragile new tissue.",
     stats: [

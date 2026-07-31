@@ -103,8 +103,11 @@ export default async function TechnologyDetail({ params }: Props) {
           {!isUltra && t.video && (
             <div className="tech-hero-figure">
               <figure className="mech-video">
-                <video autoPlay muted loop playsInline poster={t.poster}>
-                  <source src={t.video} type="video/mp4" />
+                <video autoPlay muted loop playsInline preload="metadata" poster={t.poster}>
+                  <source src={t.video} type="video/webm" />
+                  {t.videoFallback && (
+                    <source src={t.videoFallback} type="video/mp4" />
+                  )}
                 </video>
                 <figcaption>Illustrative mechanism animation</figcaption>
               </figure>
