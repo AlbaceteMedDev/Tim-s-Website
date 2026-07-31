@@ -50,7 +50,12 @@ export default function DeviceShowcase({ hasVideo = false }: { hasVideo?: boolea
   const showLoop = hasVideo && useVideo;
 
   return (
-    <div className="device" ref={ref} onMouseMove={onMove} onMouseLeave={onLeave}>
+    <div
+      className={`device${showLoop ? " device--video" : ""}`}
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+    >
       <div className="device-glow" aria-hidden="true" />
       <div className="device-ticks" aria-hidden="true">
         <span>40 kHz</span>

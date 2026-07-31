@@ -1612,12 +1612,29 @@
 
 /* ---- device showcase ---- */
 
+/* Product window: the device sits *in* a panel rather than floating loose on
+   the page — squared-off gradient card, hairline rule, warm centre glow. */
 .device {
   position: relative;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
   perspective: 1000px;
+  padding: clamp(1.1rem, 2.6vw, 2.1rem);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-inv);
+  background:
+    radial-gradient(ellipse at center, rgba(214, 160, 58, 0.10) 0%, transparent 55%),
+    linear-gradient(155deg, var(--forest-deep) 0%, var(--forest-night) 100%);
+  overflow: hidden;
+}
+
+.device::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(214, 160, 58, 0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .device-glow {
@@ -1690,22 +1707,31 @@
 .device-media {
   position: relative;
   z-index: 2;
-  width: min(100%, 30rem);
-  height: auto;
-  filter: drop-shadow(0 30px 50px rgba(8, 24, 16, 0.55));
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.6));
 }
 
-/* The loop's cutout runs to the frame edge, so fade the last few percent —
-   otherwise the video's rectangular boundary reads as a hard crop line. */
-video.device-media {
-  mask-image:
-    linear-gradient(to bottom, #000 78%, transparent 99%),
-    linear-gradient(to right, #000 88%, transparent 99%);
-  mask-composite: intersect;
-  -webkit-mask-image:
-    linear-gradient(to bottom, #000 78%, transparent 99%),
-    linear-gradient(to right, #000 88%, transparent 99%);
-  -webkit-mask-composite: source-in;
+/* The loop's subject is cut by its own frame edge, so instead of insetting it
+   (which leaves that cut floating mid-panel) the video fills the window and
+   the panel does the cropping — the bleed then reads as deliberate framing. */
+.device--video { padding: 0; }
+.device--video .device-float {
+  width: 100%;
+  height: 100%;
+  /* the loop carries its own camera drift; bobbing it would expose panel edges */
+  animation: none;
+  transform: none;
+}
+.device--video video.device-media {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  filter: none;
 }
 
 .device-mist {
