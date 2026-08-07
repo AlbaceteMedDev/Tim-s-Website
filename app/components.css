@@ -1740,26 +1740,6 @@
   filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.6));
 }
 
-/* The loop's subject is cut by its own frame edge, so instead of insetting it
-   (which leaves that cut floating mid-panel) the video fills the window and
-   the panel does the cropping — the bleed then reads as deliberate framing. */
-.device--video { padding: 0; }
-.device--video .device-float {
-  width: 100%;
-  height: 100%;
-  /* the loop carries its own camera drift; bobbing it would expose panel edges */
-  animation: none;
-  transform: none;
-}
-.device--video video.device-media {
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  max-height: none;
-  object-fit: cover;
-  filter: none;
-}
-
 .device-mist {
   position: absolute;
   top: 52%;
