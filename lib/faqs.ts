@@ -7,7 +7,7 @@ export const faqs: Faq[] = [
   {
     question: "My wound hasn't healed in months. What can be done differently?",
     answer:
-      "A wound that hasn't improved in 30 days of standard care is, by definition, stalled — and stalled wounds usually need a different approach, not more of the same dressing. Apollo Wound Care starts by identifying why it stalled (poor circulation, infection or biofilm, excess wound enzymes, pressure, or nutrition), then escalates with advanced modalities matched to that cause: non-contact UltraMIST® ultrasound, amniotic membrane allografts, or antimicrobial silver matrix. All of it happens in your home, coordinated with your other doctors.",
+      "A wound that hasn't improved in 30 days of standard care is, by definition, stalled — and stalled wounds usually need a different approach, not more of the same dressing. Apollo Wound Care starts by identifying why it stalled (poor circulation, infection or biofilm, excess wound enzymes, pressure, or nutrition), then escalates with advanced modalities matched to that cause: non-contact UltraMIST® ultrasound, amniotic membrane allografts, antimicrobial silver matrix, or the Miro3D® three-dimensional wound matrix for wounds with real depth. All of it happens in your home, coordinated with your other doctors.",
   },
   {
     question: "What is UltraMIST® ultrasound therapy and does it hurt?",

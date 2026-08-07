@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Advanced Wound-Healing Technology in NYC",
   description:
-    "The advanced modalities Apollo Wound Care brings to the bedside for complex and non-healing wounds: non-contact UltraMIST® ultrasound, amniotic allografts, and antimicrobial silver matrix — with the science behind each.",
+    "The advanced modalities Apollo Wound Care brings to the bedside for complex and non-healing wounds: non-contact UltraMIST® ultrasound, amniotic allografts, antimicrobial silver matrix, and the Miro3D® three-dimensional wound matrix — with the science behind each.",
   alternates: { canonical: "/technology" },
 };
 
@@ -89,7 +89,7 @@ export default function TechnologyPage() {
         <div className="container">
           <Reveal>
             <span className="eyebrow">The toolkit</span>
-            <h2 className="section-title">Three platforms, three failure points.</h2>
+            <h2 className="section-title">Four platforms, four failure points.</h2>
           </Reveal>
           <div className="tech-list">
             {technologies.map((t, i) => (

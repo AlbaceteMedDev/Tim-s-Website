@@ -68,7 +68,7 @@ export default function MistDemo() {
               <stop offset="1" stopColor="#dff0e7" stopOpacity="0" />
             </linearGradient>
             <clipPath id="skinclip">
-              <path d="M0 118 H150 C176 118 184 150 210 150 C236 150 244 118 270 118 H460 V300 H0 Z" />
+              <path d="M0 118 H170 C196 118 204 150 230 150 C256 150 264 118 290 118 H460 V300 H0 Z" />
             </clipPath>
           </defs>
 
@@ -97,7 +97,7 @@ export default function MistDemo() {
           <g className="demo-waves" clipPath="url(#skinclip)" aria-hidden="true">
             {[0, 1, 2, 3].map((i) => (
               <ellipse key={i} className="wave" style={{ "--w": i } as React.CSSProperties}
-                cx="210" cy="150" rx={30 + i * 20} ry={14 + i * 9}
+                cx="230" cy="150" rx={30 + i * 20} ry={14 + i * 9}
                 fill="none" stroke="#5fce93" strokeWidth="1.6" />
             ))}
           </g>
@@ -116,11 +116,11 @@ export default function MistDemo() {
           </g>
 
           {/* ===== wound crater ===== */}
-          <path d="M150 118 C176 118 184 150 210 150 C236 150 244 118 270 118 C262 150 250 176 210 176 C170 176 158 150 150 118 Z"
+          <path d="M170 118 C196 118 204 150 230 150 C256 150 264 118 290 118 C282 150 270 176 230 176 C190 176 178 150 170 118 Z"
             fill="url(#bed)" />
           {/* slough speckle on the bed */}
           <g className="demo-bacteria" aria-hidden="true">
-            {[[192, 138], [208, 146], [224, 138], [200, 132], [216, 132], [186, 130], [230, 130]].map(([cx, cy], i) => (
+            {[[212, 138], [228, 146], [244, 138], [220, 132], [236, 132], [206, 130], [250, 130]].map(([cx, cy], i) => (
               <circle key={i} className="germ" style={{ "--g": i } as React.CSSProperties}
                 cx={cx} cy={cy} r="2.6" fill="#8a9a4a" />
             ))}
@@ -128,17 +128,17 @@ export default function MistDemo() {
 
           {/* ===== granulation fill + vessels (perfusion) ===== */}
           <path className="demo-granulation"
-            d="M150 118 C176 118 184 150 210 150 C236 150 244 118 270 118 C262 150 250 176 210 176 C170 176 158 150 150 118 Z"
+            d="M170 118 C196 118 204 150 230 150 C256 150 264 118 290 118 C282 150 270 176 230 176 C190 176 178 150 170 118 Z"
             fill="url(#granu)" />
           <g className="demo-vessels" aria-hidden="true">
-            {[[186, 168], [202, 172], [218, 172], [234, 168]].map(([x, y], i) => (
+            {[[206, 168], [222, 172], [238, 172], [254, 168]].map(([x, y], i) => (
               <path key={i} className="vessel" style={{ "--v": i } as React.CSSProperties}
                 d={`M${x} ${y} q4 -14 -3 -26`} fill="none" stroke="#c0472a" strokeWidth="2" strokeLinecap="round" />
             ))}
           </g>
 
           {/* surface line highlight */}
-          <path d="M0 118 H150 C176 118 184 150 210 150 C236 150 244 118 270 118 H460"
+          <path d="M0 118 H170 C196 118 204 150 230 150 C256 150 264 118 290 118 H460"
             fill="none" stroke="#00000018" strokeWidth="1.5" />
         </svg>
       </div>

@@ -279,8 +279,8 @@ export default function HomePage() {
               A non-healing wound needs more than another dressing. Apollo Wound Care
               carries hospital-grade modalities to the bedside — including
               <strong> UltraMIST® non-contact ultrasound</strong>, amniotic allografts,
-              and antimicrobial silver matrix — matched to the reason your wound
-              stopped closing.
+              antimicrobial silver matrix, and the Miro3D® three-dimensional wound
+              matrix — matched to the reason your wound stopped closing.
             </p>
             <div className="tech-showcase-stats">
               <div>
@@ -288,7 +288,7 @@ export default function HomePage() {
                 <span>painless non-contact ultrasound</span>
               </div>
               <div>
-                <b>3</b>
+                <b>4</b>
                 <span>advanced platforms, one care plan</span>
               </div>
             </div>

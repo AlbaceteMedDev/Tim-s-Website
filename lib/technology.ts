@@ -9,10 +9,19 @@
  * cited source. Availability of any given modality for a specific patient is
  * always subject to clinical assessment and payer coverage.
  *
- * Specific FDA 510(k) / HCPCS identifiers are intentionally NOT published here:
- * the source material assigned the same code (K153756 / A2005) to two distinct
- * products, so exact clearance numbers must be human-verified against NPPES /
- * the FDA 510(k) database before being stated on a patient-facing page.
+ * Specific FDA 510(k) / HCPCS identifiers are intentionally NOT published for
+ * the amniotic and antimicrobial entries: the source material assigned the same
+ * code (K153756 / A2005) to two distinct products, so those clearance numbers
+ * must be human-verified against the FDA 510(k) database before being stated on
+ * a patient-facing page. Miro3D is the exception — its K221520 clearance is
+ * stated unambiguously in Albacete MedDev's own physician guide for the product
+ * it distributes, so that number is sourced and safe to cite.
+ *
+ * EVIDENCE NOTE (Miro3D): the published base is one retrospective case series
+ * (11 patients / 13 wounds), a single-case report and conference material, with
+ * no randomised or comparative data. The manufacturer's own guide instructs
+ * that this be used "for mechanism and plausibility, not as evidence of benefit."
+ * Accordingly this page carries NO outcome statistics — do not add any.
  * ──────────────────────────────────────────────────────────────────────────
  */
 
@@ -41,7 +50,7 @@ export interface Technology {
   name: string;
   /** Trademark/manufacturer attribution line. */
   attribution: string;
-  category: "Ultrasound therapy" | "Biologic graft" | "Antimicrobial";
+  category: "Ultrasound therapy" | "Biologic graft" | "Antimicrobial" | "Wound matrix";
   /** One-line teaser for cards + meta. */
   teaser: string;
   /** Lead paragraph. */
@@ -165,6 +174,54 @@ export const technologies: Technology[] = [
     ],
     footnote:
       "FDA cleared. Clinical figures: Manning (n=32), refractory wounds, mean 40 weeks stalled. Applicability and coverage are determined at clinical assessment.",
+  },
+  {
+    slug: "miro3d-wound-matrix",
+    shortName: "Miro3D® Matrix",
+    name: "Miro3D® Three-Dimensional Wound Matrix",
+    attribution: "Reprise Biomedical Miro3D® · applied by Apollo Wound Care",
+    category: "Wound matrix",
+    teaser:
+      "A 2 cm-thick, open-porous scaffold that fills a deep wound rather than covering it — built for cavities, tunnels and undermined edges.",
+    video: "/miro3d-loop.webm",
+    videoFallback: "/miro3d-loop.mp4",
+    poster: "/miro3d-poster.jpg",
+    intro:
+      "Some wounds are not a surface — they are a space. A flat sheet graft laid over a deep, tunnelling or undermined wound leaves dead space underneath it, and dead space is where healing stalls. Miro3D is different in kind: a 2 cm-thick, open-porous acellular scaffold that is trimmed at the bedside to the shape of the defect and packed into it, holding contact with the wound's walls and base instead of just its rim. It is made from porcine liver — chosen because the liver is the body's most densely vascularised organ, so once its cells are washed out the collagen left behind is a naturally open, interconnected three-dimensional network rather than a flat plane. Host tissue then grows into that open structure from the surrounding wound.",
+    effects: [
+      {
+        label: "Step 01",
+        title: "Fill the dead space",
+        copy: "At 2 cm thick the matrix is a volume, not a film. Trimmed to the defect, it occupies the cavity a flat graft would bridge over — the space where deep wounds stall.",
+      },
+      {
+        label: "Step 02",
+        title: "Hold contact with walls and base",
+        copy: "Cut to shape so it sits in maximum possible contact with healthy, well-vascularised tissue — the sides and floor of the wound, not only the surface rim.",
+      },
+      {
+        label: "Step 03",
+        title: "Let tissue grow in",
+        copy: "The scaffold stays open and porous so host tissue can integrate into it. Once it has integrated it is deliberately left in place rather than stripped back out.",
+      },
+    ],
+    specs: [
+      { k: "Source", v: "Perfusion-decellularised porcine liver" },
+      { k: "Thickness", v: "2 cm — a volume, not a sheet" },
+      { k: "Sizes", v: "Ten, from 8 cm³ to 100 cm³" },
+      { k: "Prepared", v: "Trimmed to shape, hydrated ≥ 5 min" },
+      { k: "Sterilisation", v: "Electron-beam · single use · MR safe" },
+      { k: "Regulatory", v: "FDA 510(k) cleared" },
+    ],
+    stats: [],
+    patient: [
+      "Built for wounds with depth — cavities, tunnels and undermined edges a flat dressing can bridge over.",
+      "The scaffold is trimmed to fit your wound during a normal home visit and packed into the space.",
+      "Once your own tissue grows into it, it is left in place rather than removed.",
+      "Used for partial- and full-thickness wounds, ulcers, tunnelled and undermined wounds and surgical wounds.",
+    ],
+    footnote:
+      "Miro3D® is a registered trademark of Reprise Biomedical, Inc.; Albacete MedDev is an independent distributor and not the manufacturer. FDA 510(k) cleared (K221520) for partial- and full-thickness wounds, ulcers, tunnelled and undermined wounds and surgical wounds. Published clinical experience is limited to a small retrospective case series (Abdo & Couch, J Wound Care 2024;33(Sup9):S5–S16), a single-case report and conference material — there are no randomised or comparative results, and larger trials are enrolling but have not reported. Contraindicated in patients with known sensitivity to porcine material and not indicated for third-degree burns; not applied until infection, bleeding and excessive exudate are controlled. Candidacy and coverage are determined at clinical assessment.",
   },
 ];
 
