@@ -1740,6 +1740,26 @@
   filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.6));
 }
 
+/* The loop is a square frame whose subject is cut by its own edges, so instead
+   of insetting it (which would leave those cuts floating mid-panel) it fills
+   the window and the panel does the cropping — the bleed reads as framing. Its
+   bob and its mist are baked in, so the CSS float is switched off here. */
+.device--video { padding: 0; }
+.device--video .device-float {
+  width: 100%;
+  height: 100%;
+  animation: none;
+  transform: none;
+}
+.device--video video.device-media {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  filter: none;
+}
+
 .device-mist {
   position: absolute;
   top: 52%;

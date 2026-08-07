@@ -97,7 +97,7 @@ export default async function TechnologyDetail({ params }: Props) {
           </div>
           {isUltra && (
             <div className="tech-hero-figure">
-              <DeviceShowcase />
+              <DeviceShowcase hasVideo={Boolean(t.video)} />
             </div>
           )}
           {!isUltra && t.video && (
