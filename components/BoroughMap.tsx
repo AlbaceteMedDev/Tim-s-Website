@@ -40,8 +40,9 @@ export default function BoroughMap() {
             </text>
           </g>
 
-          {/* cartographic flourish: north arrow */}
-          <g className="map-compass" aria-hidden="true" transform="translate(38 44)">
+          {/* cartographic flourish: north arrow — parked in the top-right water,
+              clear of both the Bronx and the New Jersey inset. */}
+          <g className="map-compass" aria-hidden="true" transform="translate(446 36)">
             <line x1="0" y1="14" x2="0" y2="-12" />
             <path d="M0 -16 L-4.5 -7 L0 -9.5 L4.5 -7 Z" />
             <text x="0" y="28" textAnchor="middle">
@@ -49,31 +50,15 @@ export default function BoroughMap() {
             </text>
           </g>
 
-          {/* New Jersey — west of the Hudson, outside the traced NYC geometry,
-              so it gets a cartographic annotation instead of a polygon. */}
-          {(() => {
-            const nj = boroughs.find((b) => b.slug === "new-jersey");
-            if (!nj) return null;
-            const isActive = active.slug === nj.slug;
-            return (
-              <g
-                className={`map-nj ${isActive ? "is-active" : ""}`}
-                onMouseEnter={() => setActive(nj)}
-                onFocus={() => setActive(nj)}
-                onClick={() => setActive(nj)}
-                tabIndex={0}
-                role="button"
-                aria-pressed={isActive}
-                aria-label="New Jersey — view coverage details"
-              >
-                <rect x="28" y="148" width="128" height="30" rx="3" className="map-nj-box" />
-                <text x="92" y="167" textAnchor="middle" className="map-nj-label">
-                  NEW JERSEY
-                </text>
-                <path d="M156 163 L176 163 M171 158 L176 163 L171 168" className="map-nj-arrow" fill="none" />
-              </g>
-            );
-          })()}
+          {/* New Jersey inset frame. The state silhouette itself is drawn by the
+              borough loop below; this is the surround that marks it as an inset
+              at a different scale from the five boroughs. */}
+          <g className="map-inset" aria-hidden="true">
+            <rect x="14" y="22" width="120" height="230" rx="3" className="map-inset-frame" />
+            <text x="74" y="242" textAnchor="middle" className="map-caption">
+              AT ITS OWN SCALE
+            </text>
+          </g>
 
           {boroughs.map((b) => {
             const s = boroughShapes[b.slug];
