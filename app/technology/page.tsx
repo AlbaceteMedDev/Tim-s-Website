@@ -13,11 +13,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/technology" },
 };
 
+// One headline figure per platform — four platforms, four numbers.
 const headline = [
   { value: "40 kHz", label: "non-contact ultrasound to the wound bed" },
   { value: "25+", label: "growth factors in placental allografts" },
   { value: "99.99%", label: "antimicrobial matrix kill efficacy" },
-  { value: "91%", label: "refractory wounds healed or improved at 12 weeks" },
+  { value: "2 cm", label: "of scaffold depth for wounds that aren't flat" },
 ];
 
 export default function TechnologyPage() {

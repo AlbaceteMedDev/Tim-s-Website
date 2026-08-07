@@ -156,6 +156,32 @@ export default async function TechnologyDetail({ params }: Props) {
         </section>
       )}
 
+      {/* ===== Why we carry it ===== */}
+      {t.whyCarry && (
+        <section className="section">
+          <div className="container">
+            <Reveal>
+              <span className="eyebrow">Why we carry it</span>
+              <h2 className="section-title">The problem it exists to solve.</h2>
+              <p className="section-lede">{t.whyCarry}</p>
+            </Reveal>
+            {t.benefits && (
+              <div className="grid-cards" style={{ marginTop: "2.5rem" }}>
+                {t.benefits.map((b, i) => (
+                  <Reveal key={b.title} delay={Math.min(i * 0.07, 0.28)} className="card">
+                    <span className="card-eyebrow">
+                      Benefit {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3>{b.title}</h3>
+                    <p>{b.copy}</p>
+                  </Reveal>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* ===== Results ===== */}
       {t.stats && t.stats.length > 0 && (
         <section className="section section-night results-band">

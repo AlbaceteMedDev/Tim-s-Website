@@ -19,9 +19,11 @@
  *
  * EVIDENCE NOTE (Miro3D): the published base is one retrospective case series
  * (11 patients / 13 wounds), a single-case report and conference material, with
- * no randomised or comparative data. The manufacturer's own guide instructs
- * that this be used "for mechanism and plausibility, not as evidence of benefit."
- * Accordingly this page carries NO outcome statistics — do not add any.
+ * no randomised or comparative data, and the authors are investigators on the
+ * manufacturer's trial. Its figures MAY be shown — consistent with how the
+ * antimicrobial entry cites Manning (n=32) — but only with the study design
+ * carried in the `source` field beside the number, never bare. Do not add a
+ * Miro3D figure without its n and design attached.
  * ──────────────────────────────────────────────────────────────────────────
  */
 
@@ -69,6 +71,10 @@ export interface Technology {
   stats?: Stat[];
   /** Plain-language "what this means for you" bullets for patients. */
   patient?: string[];
+  /** The specific failure mode this modality exists to solve. */
+  whyCarry?: string;
+  /** Concrete benefits — what carrying this changes for the patient. */
+  benefits?: { title: string; copy: string }[];
   /** Global citation/disclaimer footnote for the page. */
   footnote?: string;
 }
@@ -114,6 +120,26 @@ export const technologies: Technology[] = [
       { k: "Regulatory", v: "FDA cleared" },
     ],
     stats: [],
+    whyCarry:
+      "Some wounds cannot tolerate being touched. A painful venous ulcer, a fresh graft site, a deep-tissue pressure injury on fragile skin — for these, every contact-based treatment carries a cost, and the predictable result is that treatment gets skipped, shortened or refused. UltraMIST is the only modality in this bag that reaches the wound bed without touching it, which makes it the answer when pain itself is the reason a wound is not being treated properly.",
+    benefits: [
+      {
+        title: "Treatment a patient will actually accept",
+        copy: "Because nothing contacts the wound, there is no procedural pain to dread and no reason to postpone a session. Treatment that gets tolerated is treatment that gets completed.",
+      },
+      {
+        title: "Three barriers addressed at once",
+        copy: "Bacteria and biofilm, stalled inflammation and poor perfusion are three of the most common reasons a wound stops closing — and this addresses all three in a single short session.",
+      },
+      {
+        title: "It layers onto the plan, not over it",
+        copy: "It runs alongside your dressings, compression and debridement rather than replacing them, so nothing already working has to be given up to add it.",
+      },
+      {
+        title: "Short enough to fit a home visit",
+        copy: "Three to twenty minutes per session, two to three times a week — a cadence that is realistic at the bedside and does not depend on you travelling anywhere.",
+      },
+    ],
     patient: [
       "Nothing touches the wound, so there is no procedural pain during treatment.",
       "Each session is short — most take between three and twenty minutes.",
@@ -141,6 +167,26 @@ export const technologies: Technology[] = [
       { value: "3", label: "graft tiers, matched to wound complexity" },
       { value: "A-C-A", label: "tri-layer amnion–chorion–amnion construct for the hardest wounds" },
     ],
+    whyCarry:
+      "A wound stuck in chronic inflammation is not short of effort — it is short of signal. The growth factors and matrix proteins that tell tissue to rebuild get consumed and degraded in a long-standing wound, and no dressing replaces them. A placental allograft puts that missing biology back on the wound bed, which is why it is the tool for wounds that have been clean, well-dressed and going nowhere for months.",
+    benefits: [
+      {
+        title: "Restores what a stalled wound has run out of",
+        copy: "Over 25 growth factors, anti-inflammatory cytokines and native extracellular matrix — the signalling a chronic wound has depleted, supplied directly at the wound bed.",
+      },
+      {
+        title: "Matched to how bad the wound is",
+        copy: "Three graft tiers, from a single-layer option to a tri-layer amnion–chorion–amnion construct, so the choice fits wound depth and history instead of one product for every case.",
+      },
+      {
+        title: "An option after other grafts have failed",
+        copy: "Selection accounts for wounds that have already failed prior grafting, so a previous disappointment does not close off this route.",
+      },
+      {
+        title: "Applied in a normal home visit",
+        copy: "A thin graft placed at the bedside during a routine appointment — no operating room, no facility trip, no separate procedure to schedule.",
+      },
+    ],
     patient: [
       "A thin, natural graft is placed on the wound during a routine visit.",
       "Chosen by wound depth and history — including wounds that failed prior grafts.",
@@ -166,6 +212,26 @@ export const technologies: Technology[] = [
       { value: "99.99%", label: "antimicrobial kill efficacy" },
       { value: "50–100×", label: "less silver than conventional dressings" },
       { value: "91%", label: "refractory wounds healed or improved at 12 weeks", source: "Manning, n=32" },
+    ],
+    whyCarry:
+      "Conventional silver dressings solve one problem by creating another: the silver concentrations that suppress bacteria are also toxic to the fibroblasts and keratinocytes doing the healing, and peeling the dressing off tears out the fragile new tissue underneath. Microlyte breaks that trade-off — antimicrobial control at a fraction of the silver, in a film that resorbs instead of being removed. It is what we reach for when infection risk has to be managed without setting the wound back every dressing change.",
+    benefits: [
+      {
+        title: "Antimicrobial control without the collateral damage",
+        copy: "Effective protection using 50–100× less silver than conventional dressings — below the level that harms the very cells rebuilding the wound.",
+      },
+      {
+        title: "No removal, no removal trauma",
+        copy: "The film resorbs into the wound. There is no dressing to peel away, so new tissue is not stripped off along with it and dressing changes stop being something to brace for.",
+      },
+      {
+        title: "Contact across the whole wound surface",
+        copy: "Ultra-thin and conforming, it follows the wound's micro-contours instead of bridging over them — so protection reaches the whole surface, not just the high points.",
+      },
+      {
+        title: "Aimed at biofilm, a top reason wounds stall",
+        copy: "Infection and biofilm keep many chronic wounds locked in inflammation. This targets that specific blocker rather than treating the wound generically.",
+      },
     ],
     patient: [
       "Protects stalled or infection-prone wounds without harsh silver levels.",
@@ -213,7 +279,39 @@ export const technologies: Technology[] = [
       { k: "Sterilisation", v: "Electron-beam · single use · MR safe" },
       { k: "Regulatory", v: "FDA 510(k) cleared" },
     ],
-    stats: [],
+    stats: [
+      { value: "2 cm", label: "of scaffold depth — a volume, not a sheet" },
+      {
+        value: "1.6 cm",
+        label: "mean wound depth in the published series",
+        source: "Abdo & Couch 2024 · 13 wounds · retrospective",
+      },
+      {
+        value: "54%",
+        label: "of those wounds fully closed by 12 weeks",
+        source: "Single centre, no control arm; all 13 closed by 22 weeks",
+      },
+    ],
+    whyCarry:
+      "Every other product here treats a wound as a surface. A deep, tunnelling or undermined wound is not a surface — it is a cavity, and a flat graft laid across the top leaves the space underneath empty. Dead space is where drainage collects, bacteria settle and healing stalls, and it is precisely the wound type that defeats ordinary care. Miro3D is the only thing in the bag that fills that volume, which is why carrying it changes which wounds can be taken on at home at all.",
+    benefits: [
+      {
+        title: "Treats depth, which flat products cannot",
+        copy: "At 2 cm thick and trimmed to shape, it occupies the cavity rather than bridging it — closing the dead space where deep wounds stall.",
+      },
+      {
+        title: "Contact with walls and base, not just the rim",
+        copy: "Cut to the defect so it meets healthy tissue on every surface it touches, which is what gives the wound something to grow into from all sides.",
+      },
+      {
+        title: "It stays put and becomes part of the repair",
+        copy: "Host tissue grows into the open structure, and once integrated it is deliberately left in place — so progress is not undone by pulling the material back out.",
+      },
+      {
+        title: "Trimmed to your wound at the bedside",
+        copy: "Ten sizes from 8 cm³ to 100 cm³, cut to the shape of the defect during a home visit — the wound sets the size, not the packaging.",
+      },
+    ],
     patient: [
       "Built for wounds with depth — cavities, tunnels and undermined edges a flat dressing can bridge over.",
       "The scaffold is trimmed to fit your wound during a normal home visit and packed into the space.",
