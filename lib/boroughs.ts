@@ -128,6 +128,31 @@ export const boroughs: Borough[] = [
     whyHouseCalls:
       "Staten Island has the fewest specialty wound resources of any borough relative to its population, and for South Shore residents, reaching one can mean two hours of travel each way. A home visit replaces that entire ordeal with a knock on the door — and for post-surgical patients told not to drive, it is often the only realistic way to get expert wound care at all.",
   },
+  {
+    slug: "new-jersey",
+    name: "New Jersey",
+    geoName: "Northern New Jersey",
+    headline: "Mobile Wound Care in Northern New Jersey",
+    intro:
+      "Apollo Wound Care crosses the Hudson. From Jersey City and Hoboken to Newark, Hackensack and Fort Lee, we bring the same hospital-grade wound care we deliver across New York City into Northern New Jersey homes — debridement, compression therapy, wound VAC management and advanced dressings, all at your bedside.",
+    neighborhoods: [
+      "Jersey City",
+      "Hoboken",
+      "Bayonne",
+      "Union City",
+      "West New York",
+      "Newark",
+      "Elizabeth",
+      "Hackensack",
+      "Fort Lee",
+      "Englewood",
+      "Paterson",
+      "Clifton",
+      "Montclair",
+    ],
+    whyHouseCalls:
+      "For patients in Hudson, Bergen, Essex, Union and Passaic counties, specialty wound centers cluster around a handful of hospital campuses — and getting to one means tunnels, bridges and parking decks that a draining wound or a post-surgical restriction makes unbearable. A house call brings the specialist through your front door instead, with every visit documented and coordinated with your New Jersey physicians.",
+  },
 ];
 
 export function getBorough(slug: string): Borough | undefined {

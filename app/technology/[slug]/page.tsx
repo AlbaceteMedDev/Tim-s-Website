@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!t) return {};
   return {
     title: `${t.name} at Home in NYC`,
-    description: `${t.teaser} Delivered in the home across all five NYC boroughs by ${site.provider.fullTitle}.`,
+    description: `${t.teaser} Delivered in the home across NYC and Northern New Jersey by ${site.provider.fullTitle}.`,
     alternates: { canonical: `/technology/${t.slug}` },
   };
 }

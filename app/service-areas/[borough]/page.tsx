@@ -41,14 +41,30 @@ export default async function BoroughPage({ params }: Props) {
     url: `${site.url}/service-areas/${borough.slug}`,
     telephone: site.phone,
     parentOrganization: { "@id": `${site.url}/#organization` },
-    areaServed: { "@type": "AdministrativeArea", name: borough.geoName },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: borough.geoName,
+      containsPlace: borough.neighborhoods.map((n) => ({
+        "@type": "Place",
+        name: n,
+      })),
+    },
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Service Areas", item: `${site.url}/service-areas` },
+      { "@type": "ListItem", position: 3, name: borough.name },
+    ],
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbLd]) }}
       />
 
       <section className="page-hero">

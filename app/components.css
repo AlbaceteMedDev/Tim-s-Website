@@ -727,6 +727,33 @@
   fill: var(--ink-mute);
 }
 
+/* New Jersey annotation — clickable like a borough, drawn as a map note */
+.map-nj { cursor: pointer; outline: none; }
+.map-nj-box {
+  fill: rgba(231, 232, 222, 0.5);
+  stroke: var(--ink-mute);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  transition: fill 0.2s, stroke 0.2s;
+}
+.map-nj-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  fill: var(--ink-2);
+  transition: fill 0.2s;
+}
+.map-nj-arrow { stroke: var(--ink-mute); stroke-width: 1.2; transition: stroke 0.2s; }
+.map-nj:hover .map-nj-box,
+.map-nj:focus-visible .map-nj-box,
+.map-nj.is-active .map-nj-box { fill: rgba(214, 160, 58, 0.14); stroke: var(--ochre); stroke-dasharray: none; }
+.map-nj:hover .map-nj-label,
+.map-nj:focus-visible .map-nj-label,
+.map-nj.is-active .map-nj-label { fill: var(--forest); }
+.map-nj:hover .map-nj-arrow,
+.map-nj:focus-visible .map-nj-arrow,
+.map-nj.is-active .map-nj-arrow { stroke: var(--ochre); }
+
 .map-borough {
   fill: #e7e8de;
   stroke: rgba(20, 23, 15, 0.4);

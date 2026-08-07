@@ -85,7 +85,7 @@ export default function NonHealingWoundsPage() {
         name: "Can a non-healing wound be treated at home?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Apollo Wound Care treats complex and non-healing wounds in the home across all five NYC boroughs, bringing the same advanced modalities used in outpatient wound centers — including non-contact UltraMIST ultrasound, amniotic allografts and antimicrobial matrix — directly to the patient, and coordinating with your existing physicians.",
+          text: "Yes. Apollo Wound Care treats complex and non-healing wounds in the home across all five NYC boroughs and Northern New Jersey, bringing the same advanced modalities used in outpatient wound centers — including non-contact UltraMIST ultrasound, amniotic allografts and antimicrobial matrix — directly to the patient, and coordinating with your existing physicians.",
         },
       },
     ],
@@ -95,7 +95,7 @@ export default function NonHealingWoundsPage() {
     "@type": "MedicalWebPage",
     name: "Non-Healing & Chronic Wound Care at Home in NYC",
     description:
-      "In-home treatment for complex, chronic and non-healing wounds and ulcers across all five NYC boroughs, led by Timothy Donoho, PA.",
+      "In-home treatment for complex, chronic and non-healing wounds and ulcers across all five NYC boroughs and Northern New Jersey, led by Timothy Donoho, PA.",
     about: {
       "@type": "MedicalCondition",
       name: "Chronic wound",

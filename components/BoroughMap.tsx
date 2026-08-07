@@ -18,7 +18,7 @@ export default function BoroughMap() {
         <svg
           viewBox="0 0 470 430"
           role="group"
-          aria-label="Map of New York City's five boroughs — all served by Apollo Wound Care"
+          aria-label="Map of New York City's five boroughs — all served by Apollo Wound Care, alongside Northern New Jersey"
         >
           {/* water panel + graticule */}
           <g aria-hidden="true">
@@ -32,8 +32,11 @@ export default function BoroughMap() {
               ))}
             </g>
             <rect x="4" y="4" width="462" height="422" rx="4" className="map-frame" />
-            <text x="450" y="416" textAnchor="end" className="map-caption">
+            <text x="450" y="404" textAnchor="end" className="map-caption">
               NEW YORK CITY — SERVICE COVERAGE
+            </text>
+            <text x="450" y="418" textAnchor="end" className="map-caption">
+              + NORTHERN NEW JERSEY
             </text>
           </g>
 
@@ -46,8 +49,35 @@ export default function BoroughMap() {
             </text>
           </g>
 
+          {/* New Jersey — west of the Hudson, outside the traced NYC geometry,
+              so it gets a cartographic annotation instead of a polygon. */}
+          {(() => {
+            const nj = boroughs.find((b) => b.slug === "new-jersey");
+            if (!nj) return null;
+            const isActive = active.slug === nj.slug;
+            return (
+              <g
+                className={`map-nj ${isActive ? "is-active" : ""}`}
+                onMouseEnter={() => setActive(nj)}
+                onFocus={() => setActive(nj)}
+                onClick={() => setActive(nj)}
+                tabIndex={0}
+                role="button"
+                aria-pressed={isActive}
+                aria-label="Northern New Jersey — view coverage details"
+              >
+                <rect x="28" y="148" width="128" height="30" rx="3" className="map-nj-box" />
+                <text x="92" y="167" textAnchor="middle" className="map-nj-label">
+                  NEW JERSEY
+                </text>
+                <path d="M156 163 L176 163 M171 158 L176 163 L171 168" className="map-nj-arrow" fill="none" />
+              </g>
+            );
+          })()}
+
           {boroughs.map((b) => {
             const s = boroughShapes[b.slug];
+            if (!s) return null;
             const isActive = active.slug === b.slug;
             return (
               <g key={b.slug}>

@@ -23,7 +23,7 @@ export default function ContactForm() {
       [
         `Name: ${data.get("name")}`,
         `Phone: ${data.get("phone")}`,
-        `Borough: ${data.get("borough")}`,
+        `Area: ${data.get("borough")}`,
         `Wound concern: ${data.get("concern")}`,
         `Requesting care for: ${data.get("who")}`,
         "",
@@ -69,10 +69,10 @@ export default function ContactForm() {
 
       <div className="form-row">
         <label className="field">
-          <span>Borough</span>
+          <span>Area</span>
           <select name="borough" required defaultValue="">
             <option value="" disabled>
-              Select a borough
+              Select your area
             </option>
             {boroughs.map((b) => (
               <option key={b.slug} value={b.name}>

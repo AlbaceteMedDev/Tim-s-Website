@@ -41,7 +41,7 @@ export default function AboutPage() {
             <span>About</span>
           </nav>
           <span className="eyebrow">About the practice</span>
-          <h1>The specialist who traded the clinic for the five boroughs.</h1>
+          <h1>The specialist who traded the clinic for the streets of NYC and North Jersey.</h1>
           <p className="section-lede">
             Apollo Wound Care is the practice of {site.provider.fullTitle} — a wound care
             specialist who brings the full capability of an outpatient wound center into

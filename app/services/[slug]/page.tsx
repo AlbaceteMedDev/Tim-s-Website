@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!service) return {};
   return {
     title: `${service.name} at Home in NYC`,
-    description: `${service.teaser} House calls by ${site.provider.fullTitle} across all five NYC boroughs.`,
+    description: `${service.teaser} House calls by ${site.provider.fullTitle} across all five NYC boroughs and Northern New Jersey.`,
     alternates: { canonical: `/services/${service.slug}` },
   };
 }
@@ -79,7 +79,7 @@ export default async function ServicePage({ params }: Props) {
             </div>
             <div className="fact">
               <dt>Coverage</dt>
-              <dd>All five NYC boroughs</dd>
+              <dd>All five NYC boroughs + Northern NJ</dd>
             </div>
             <div className="fact">
               <dt>Referral</dt>

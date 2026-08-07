@@ -36,7 +36,7 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Mobile Wound Care Across NYC's Five Boroughs`,
+    default: `${site.name} — Mobile Wound Care Across NYC & Northern NJ`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -51,6 +51,11 @@ export const metadata: Metadata = {
     "wound care Manhattan",
     "wound care Bronx",
     "wound care Staten Island",
+    "mobile wound care New Jersey",
+    "wound care at home NJ",
+    "wound care Jersey City",
+    "wound care Newark",
+    "wound care Hackensack",
     "Timothy Donoho PA",
   ],
   authors: [{ name: site.provider.fullTitle }],
@@ -60,12 +65,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Mobile Wound Care Across NYC's Five Boroughs`,
+    title: `${site.name} — Mobile Wound Care Across NYC & Northern NJ`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Mobile Wound Care in NYC`,
+    title: `${site.name} — Mobile Wound Care in NYC & NJ`,
     description: site.description,
   },
   robots: {
@@ -80,11 +85,17 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "./" },
   formatDetection: { telephone: true },
+  // Set GOOGLE_SITE_VERIFICATION in Vercel env to verify Search Console
+  // without a code change; the tag is omitted from markup when unset.
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 /**
  * Practice-level structured data: a MedicalBusiness with its provider,
- * service catalog and full five-borough service area. Emitted on every page.
+ * service catalog and full service area (five NYC boroughs + Northern NJ).
+ * Emitted on every page.
  */
 function organizationJsonLd() {
   return {

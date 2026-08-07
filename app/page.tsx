@@ -52,7 +52,7 @@ export default function HomePage() {
         <div className="container hero-inner">
           <div>
             <Reveal>
-              <p className="hero-note">Serving all five boroughs of New York City</p>
+              <p className="hero-note">Serving all five NYC boroughs &amp; Northern New Jersey</p>
               <h1 className="hero-title">
                 {["Wound", "care", "that"].map((w, i) => (
                   <span key={w}>
@@ -215,7 +215,7 @@ export default function HomePage() {
         <div className="container">
           <Reveal>
             <span className="eyebrow">03 / Where we go</span>
-            <h2 className="section-title">If it's in the five boroughs, it's a house call.</h2>
+            <h2 className="section-title">If it's in the five boroughs — or across the Hudson — it's a house call.</h2>
             <p className="section-lede">
               Explore the map. Apollo Wound Care travels to every corner of New York
               City, from Riverdale to Tottenville and Inwood to Far Rockaway.
