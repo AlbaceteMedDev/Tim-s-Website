@@ -65,6 +65,13 @@ export interface Technology {
   videoFallback?: string;
   /** Poster image for the video — shown while it loads, so the frame is never blank. */
   poster?: string;
+  /**
+   * Caption printed over the hero loop. Defaults to "Illustrative mechanism
+   * animation", which is accurate for the drawn mechanism loops. Override it
+   * wherever the loop is built from real product photography, so the page never
+   * implies a diagram is a photograph — or a photograph is real footage.
+   */
+  videoCaption?: string;
   featured?: boolean;
   effects?: Effect[];
   specs?: Spec[];
@@ -252,6 +259,10 @@ export const technologies: Technology[] = [
     video: "/miro3d-loop.webm",
     videoFallback: "/miro3d-loop.mp4",
     poster: "/miro3d-poster.jpg",
+    // Unlike the other two loops, this one starts from the real Miro3D product
+    // photograph rather than a drawn diagram — but the rotation and the interior
+    // it reveals are generated, not filmed. The caption has to say both.
+    videoCaption: "Miro3D scaffold — product photograph, animated to show its structure",
     intro:
       "Some wounds are not a surface — they are a space. A flat sheet graft laid over a deep, tunnelling or undermined wound leaves dead space underneath it, and dead space is where healing stalls. Miro3D is different in kind: a 2 cm-thick, open-porous acellular scaffold that is trimmed at the bedside to the shape of the defect and packed into it, holding contact with the wound's walls and base instead of just its rim. It is made from porcine liver — chosen because the liver is the body's most densely vascularised organ, so once its cells are washed out the collagen left behind is a naturally open, interconnected three-dimensional network rather than a flat plane. Host tissue then grows into that open structure from the surrounding wound.",
     effects: [

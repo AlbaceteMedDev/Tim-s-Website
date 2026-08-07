@@ -109,7 +109,9 @@ export default async function TechnologyDetail({ params }: Props) {
                     <source src={t.videoFallback} type="video/mp4" />
                   )}
                 </video>
-                <figcaption>Illustrative mechanism animation</figcaption>
+                <figcaption>
+                  {t.videoCaption ?? "Illustrative mechanism animation"}
+                </figcaption>
               </figure>
             </div>
           )}
