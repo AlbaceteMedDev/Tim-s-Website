@@ -5,6 +5,7 @@ import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { boroughs } from "@/lib/boroughs";
 import { technologies } from "@/lib/technology";
+import { comboPages } from "@/lib/comboPages";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -18,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/faq`, lastModified, changeFrequency: "monthly", priority: 0.7 },
     { url: `${site.url}/technology`, lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: `${site.url}/non-healing-wounds`, lastModified, changeFrequency: "monthly", priority: 0.95 },
+    { url: `${site.url}/is-my-wound-infected`, lastModified, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${site.url}/for-referrers`, lastModified, changeFrequency: "monthly", priority: 0.8 },
   ];
 
   const servicePages: MetadataRoute.Sitemap = services.map((s) => ({
@@ -41,5 +44,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages, ...boroughPages, ...techPages];
+  const comboEntries: MetadataRoute.Sitemap = comboPages.map((c) => ({
+    url: `${site.url}/services/${c.serviceSlug}/${c.boroughSlug}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.75,
+  }));
+
+  return [
+    ...staticPages,
+    ...servicePages,
+    ...boroughPages,
+    ...techPages,
+    ...comboEntries,
+  ];
 }

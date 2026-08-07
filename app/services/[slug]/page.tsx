@@ -6,6 +6,7 @@ import ServiceIcon from "@/components/ServiceIcon";
 import CTABand from "@/components/CTABand";
 import { services, getService } from "@/lib/services";
 import { boroughs } from "@/lib/boroughs";
+import { getCombo } from "@/lib/comboPages";
 import { site } from "@/lib/site";
 
 interface Props {
@@ -149,11 +150,21 @@ export default async function ServicePage({ params }: Props) {
                 <strong style={{ fontSize: "var(--text-xs)", letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--ochre)" }}>
                   Serving
                 </strong>
-                {boroughs.map((b) => (
-                  <Link key={b.slug} href={`/service-areas/${b.slug}`}>
-                    {service.shortName} in {b.name} →
-                  </Link>
-                ))}
+                {boroughs.map((b) => {
+                  const combo = getCombo(service.slug, b.slug);
+                  return (
+                    <Link
+                      key={b.slug}
+                      href={
+                        combo
+                          ? `/services/${service.slug}/${b.slug}`
+                          : `/service-areas/${b.slug}`
+                      }
+                    >
+                      {service.shortName} in {b.name} →
+                    </Link>
+                  );
+                })}
               </div>
             </aside>
           </Reveal>

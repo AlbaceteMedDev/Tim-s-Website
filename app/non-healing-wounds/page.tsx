@@ -267,6 +267,12 @@ export default function NonHealingWoundsPage() {
                 ))}
               </div>
               <div className="aside-links" style={{ borderTop: "1px solid var(--line)", paddingTop: "1.2rem" }}>
+                <strong>Not sure what you&apos;re looking at?</strong>
+                <Link href="/is-my-wound-infected">
+                  Is my wound infected — or just not healing? →
+                </Link>
+              </div>
+              <div className="aside-links" style={{ borderTop: "1px solid var(--line)", paddingTop: "1.2rem" }}>
                 <strong>Prefer to talk it through?</strong>
                 <a href={`tel:${site.phoneHref}`}>Call {site.phone} →</a>
                 <Link href="/contact">Request an evaluation online →</Link>

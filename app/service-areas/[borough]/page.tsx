@@ -6,6 +6,7 @@ import ServiceIcon from "@/components/ServiceIcon";
 import CTABand from "@/components/CTABand";
 import StitchDivider from "@/components/StitchDivider";
 import { boroughs, getBorough } from "@/lib/boroughs";
+import { getCombo } from "@/lib/comboPages";
 import { services } from "@/lib/services";
 import { technologies } from "@/lib/technology";
 import { site } from "@/lib/site";
@@ -120,11 +121,21 @@ export default async function BoroughPage({ params }: Props) {
             <aside className="aside-card" style={{ position: "static" }}>
               <h3>Every service, available in {borough.name}</h3>
               <div className="aside-links">
-                {services.map((s) => (
-                  <Link key={s.slug} href={`/services/${s.slug}`}>
-                    {s.shortName} →
-                  </Link>
-                ))}
+                {services.map((s) => {
+                  const combo = getCombo(s.slug, borough.slug);
+                  return (
+                    <Link
+                      key={s.slug}
+                      href={
+                        combo
+                          ? `/services/${s.slug}/${borough.slug}`
+                          : `/services/${s.slug}`
+                      }
+                    >
+                      {s.shortName} →
+                    </Link>
+                  );
+                })}
               </div>
             </aside>
           </Reveal>

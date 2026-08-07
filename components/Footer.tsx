@@ -53,6 +53,8 @@ export default function Footer() {
           <h3>Practice</h3>
           <Link href="/about">About Timothy Donoho, PA</Link>
           <Link href="/faq">Frequently Asked Questions</Link>
+          <Link href="/is-my-wound-infected">Is My Wound Infected?</Link>
+          <Link href="/for-referrers">For Physicians &amp; Agencies</Link>
           <Link href="/contact">Request a Visit</Link>
           <a href={`mailto:${site.email}`}>{site.email}</a>
         </nav>
