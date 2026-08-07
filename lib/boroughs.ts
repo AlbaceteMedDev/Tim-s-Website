@@ -7,6 +7,8 @@ export interface Borough {
   intro: string;
   /** Unique local color for SEO copy — neighborhoods served. */
   neighborhoods: string[];
+  /** Counties covered, for areas larger than a single city (e.g. New Jersey). */
+  counties?: string[];
   /** Borough-specific paragraph about why house calls matter there. */
   whyHouseCalls: string;
 }
@@ -131,27 +133,54 @@ export const boroughs: Borough[] = [
   {
     slug: "new-jersey",
     name: "New Jersey",
-    geoName: "Northern New Jersey",
-    headline: "Mobile Wound Care in Northern New Jersey",
+    geoName: "New Jersey",
+    headline: "Mobile Wound Care in New Jersey",
     intro:
-      "Apollo Wound Care crosses the Hudson. From Jersey City and Hoboken to Newark, Hackensack and Fort Lee, we bring the same hospital-grade wound care we deliver across New York City into Northern New Jersey homes — debridement, compression therapy, wound VAC management and advanced dressings, all at your bedside.",
+      "Apollo Wound Care crosses the Hudson. From Jersey City and Newark to Trenton, Toms River and Cherry Hill, we bring the same hospital-grade wound care we deliver across New York City into New Jersey homes in all 21 counties — debridement, compression therapy, wound VAC management and advanced dressings, all at your bedside.",
     neighborhoods: [
       "Jersey City",
       "Hoboken",
-      "Bayonne",
-      "Union City",
-      "West New York",
       "Newark",
       "Elizabeth",
       "Hackensack",
       "Fort Lee",
-      "Englewood",
       "Paterson",
       "Clifton",
       "Montclair",
+      "New Brunswick",
+      "Edison",
+      "Princeton",
+      "Trenton",
+      "Freehold",
+      "Toms River",
+      "Cherry Hill",
+      "Atlantic City",
+    ],
+    counties: [
+      "Atlantic",
+      "Bergen",
+      "Burlington",
+      "Camden",
+      "Cape May",
+      "Cumberland",
+      "Essex",
+      "Gloucester",
+      "Hudson",
+      "Hunterdon",
+      "Mercer",
+      "Middlesex",
+      "Monmouth",
+      "Morris",
+      "Ocean",
+      "Passaic",
+      "Salem",
+      "Somerset",
+      "Sussex",
+      "Union",
+      "Warren",
     ],
     whyHouseCalls:
-      "For patients in Hudson, Bergen, Essex, Union and Passaic counties, specialty wound centers cluster around a handful of hospital campuses — and getting to one means tunnels, bridges and parking decks that a draining wound or a post-surgical restriction makes unbearable. A house call brings the specialist through your front door instead, with every visit documented and coordinated with your New Jersey physicians.",
+      "New Jersey's specialty wound centers cluster around a handful of hospital campuses, and for patients in the state's suburban and shore communities — from Sussex County to Cape May — reaching one can mean an hour or more each way, with tunnels, bridges and parking decks that a draining wound or a post-surgical restriction makes unbearable. A house call brings the specialist through your front door instead, with every visit documented and coordinated with your New Jersey physicians.",
   },
 ];
 

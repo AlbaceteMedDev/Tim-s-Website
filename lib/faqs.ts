@@ -17,12 +17,12 @@ export const faqs: Faq[] = [
   {
     question: "What is mobile wound care?",
     answer:
-      "Mobile wound care means a wound specialist travels to you — your home, a family member's home, or an adult-care residence — instead of you traveling to a wound center. Apollo Wound Care brings the same clinical capabilities you'd find in an outpatient wound clinic, including sharp debridement, compression therapy, wound VAC management and advanced dressings, directly to patients across all five boroughs of New York City and Northern New Jersey.",
+      "Mobile wound care means a wound specialist travels to you — your home, a family member's home, or an adult-care residence — instead of you traveling to a wound center. Apollo Wound Care brings the same clinical capabilities you'd find in an outpatient wound clinic, including sharp debridement, compression therapy, wound VAC management and advanced dressings, directly to patients across all five boroughs of New York City and throughout New Jersey.",
   },
   {
     question: "Which areas do you serve?",
     answer:
-      "Apollo Wound Care serves all five NYC boroughs — Manhattan, Brooklyn, Queens, The Bronx and Staten Island — plus Northern New Jersey, including Jersey City, Hoboken, Newark, Hackensack and Fort Lee. Timothy Donoho, PA travels the whole territory, from Riverdale to Tottenville and Far Rockaway to the Hudson waterfront.",
+      "Apollo Wound Care serves all five NYC boroughs — Manhattan, Brooklyn, Queens, The Bronx and Staten Island — plus all 21 counties of New Jersey — from Bergen and Hudson down to Cape May — including Jersey City, Newark, New Brunswick, Trenton, Toms River and Cherry Hill. Timothy Donoho, PA travels the whole territory.",
   },
   {
     question: "Who provides the care?",

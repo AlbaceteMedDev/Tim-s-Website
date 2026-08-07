@@ -12,7 +12,7 @@ export const site = {
   legalName: "Apollo Wound Care",
   tagline: "Expert wound care, delivered to your door.",
   description:
-    "Apollo Wound Care brings specialist-level wound treatment to patients at home across all five boroughs of New York City and Northern New Jersey. Led by Timothy Donoho, PA — diabetic ulcers, pressure injuries, venous ulcers, surgical wounds and more, treated where you live.",
+    "Apollo Wound Care brings specialist-level wound treatment to patients at home across all five boroughs of New York City and all 21 counties of New Jersey. Led by Timothy Donoho, PA — diabetic ulcers, pressure injuries, venous ulcers, surgical wounds and more, treated where you live.",
   // Canonical origin for metadata, sitemap and JSON-LD. Override per-deploy
   // with NEXT_PUBLIC_SITE_URL; defaults to the future production domain.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.apollowoundcare.com",

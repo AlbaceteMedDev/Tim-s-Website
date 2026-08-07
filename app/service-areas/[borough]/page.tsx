@@ -44,10 +44,16 @@ export default async function BoroughPage({ params }: Props) {
     areaServed: {
       "@type": "AdministrativeArea",
       name: borough.geoName,
-      containsPlace: borough.neighborhoods.map((n) => ({
-        "@type": "Place",
-        name: n,
-      })),
+      containsPlace: [
+        ...(borough.counties ?? []).map((c) => ({
+          "@type": "AdministrativeArea",
+          name: `${c} County, NJ`,
+        })),
+        ...borough.neighborhoods.map((n) => ({
+          "@type": "Place",
+          name: n,
+        })),
+      ],
     },
   };
   const breadcrumbLd = {
@@ -86,6 +92,12 @@ export default async function BoroughPage({ params }: Props) {
               </span>
             ))}
           </div>
+          {borough.counties && (
+            <p className="county-line">
+              <strong>Every county covered:</strong>{" "}
+              {borough.counties.map((c) => `${c}`).join(" · ")}
+            </p>
+          )}
         </div>
       </section>
 

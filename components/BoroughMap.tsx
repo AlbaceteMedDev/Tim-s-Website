@@ -18,7 +18,7 @@ export default function BoroughMap() {
         <svg
           viewBox="0 0 470 430"
           role="group"
-          aria-label="Map of New York City's five boroughs — all served by Apollo Wound Care, alongside Northern New Jersey"
+          aria-label="Map of New York City's five boroughs — all served by Apollo Wound Care, alongside New Jersey"
         >
           {/* water panel + graticule */}
           <g aria-hidden="true">
@@ -36,7 +36,7 @@ export default function BoroughMap() {
               NEW YORK CITY — SERVICE COVERAGE
             </text>
             <text x="450" y="418" textAnchor="end" className="map-caption">
-              + NORTHERN NEW JERSEY
+              + NEW JERSEY — ALL 21 COUNTIES
             </text>
           </g>
 
@@ -64,7 +64,7 @@ export default function BoroughMap() {
                 tabIndex={0}
                 role="button"
                 aria-pressed={isActive}
-                aria-label="Northern New Jersey — view coverage details"
+                aria-label="New Jersey — view coverage details"
               >
                 <rect x="28" y="148" width="128" height="30" rx="3" className="map-nj-box" />
                 <text x="92" y="167" textAnchor="middle" className="map-nj-label">

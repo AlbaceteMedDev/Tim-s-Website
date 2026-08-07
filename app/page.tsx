@@ -52,7 +52,7 @@ export default function HomePage() {
         <div className="container hero-inner">
           <div>
             <Reveal>
-              <p className="hero-note">Serving all five NYC boroughs &amp; Northern New Jersey</p>
+              <p className="hero-note">Serving all five NYC boroughs &amp; all 21 New Jersey counties</p>
               <h1 className="hero-title">
                 {["Wound", "care", "that"].map((w, i) => (
                   <span key={w}>

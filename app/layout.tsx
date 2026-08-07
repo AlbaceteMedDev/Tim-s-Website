@@ -36,7 +36,7 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Mobile Wound Care Across NYC & Northern NJ`,
+    default: `${site.name} — Mobile Wound Care Across NYC & NJ`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Mobile Wound Care Across NYC & Northern NJ`,
+    title: `${site.name} — Mobile Wound Care Across NYC & NJ`,
     description: site.description,
   },
   twitter: {
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
 
 /**
  * Practice-level structured data: a MedicalBusiness with its provider,
- * service catalog and full service area (five NYC boroughs + Northern NJ).
+ * service catalog and full service area (five NYC boroughs + all New Jersey counties).
  * Emitted on every page.
  */
 function organizationJsonLd() {
