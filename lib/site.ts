@@ -20,6 +20,8 @@ export const site = {
   phoneHref: "+19295550134", // TODO: replace with the practice's real number
   email: "care@apollowoundcare.com", // TODO: replace with the practice's real inbox
   hours: "Mon–Sat, 8am–6pm",
+  // Google Analytics 4 Measurement ID, e.g. "G-ABC123XYZ". Leave empty for no analytics.
+  googleAnalyticsId: "" as string,
   provider: {
     name: "Timothy Donoho",
     credential: "PA-C",
