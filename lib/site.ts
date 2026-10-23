@@ -16,8 +16,8 @@ export const site = {
   // Canonical origin for metadata, sitemap and JSON-LD. Override per-deploy
   // with NEXT_PUBLIC_SITE_URL; defaults to the future production domain.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.apollowoundcare.com",
-  phone: "(347) 416-5959", // TODO: replace with the practice's real number
-  phoneHref: "+13474165959", // TODO: replace with the practice's real number
+  phone: "(347) 416-6969", // TODO: replace with the practice's real number
+  phoneHref: "+13474166969", // TODO: replace with the practice's real number
   email: "care@apollowoundcare.com", // TODO: replace with the practice's real inbox
   hours: "Mon–Sat, 8am–6pm",
   // Google Analytics 4 Measurement ID, e.g. "G-ABC123XYZ". Leave empty for no analytics.
