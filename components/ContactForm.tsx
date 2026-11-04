@@ -11,39 +11,65 @@ import { services } from "@/lib/services";
  * an API route or form service when one is connected.
  */
 export default function ContactForm() {
-  const [sent, setSent] = useState(false);
+  // The composed request, kept after submit so visitors without an email app can copy it.
+  const [request, setRequest] = useState<string | null>(null);
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const subject = encodeURIComponent(
-      `Visit request — ${data.get("name")} (${data.get("borough")})`
-    );
-    const body = encodeURIComponent(
-      [
-        `Name: ${data.get("name")}`,
-        `Phone: ${data.get("phone")}`,
-        `Area: ${data.get("borough")}`,
-        `Wound concern: ${data.get("concern")}`,
-        `Requesting care for: ${data.get("who")}`,
-        "",
-        `Details: ${data.get("details") || "—"}`,
-      ].join("\n")
-    );
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+    const subject = `Visit request — ${data.get("name")} (${data.get("borough")})`;
+    const body = [
+      `Name: ${data.get("name")}`,
+      `Phone: ${data.get("phone")}`,
+      `Area: ${data.get("borough")}`,
+      `Wound concern: ${data.get("concern")}`,
+      `Requesting care for: ${data.get("who")}`,
+      "",
+      `Details: ${data.get("details") || "—"}`,
+    ].join("\n");
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    setRequest(`Subject: ${subject}\n\n${body}`);
   }
 
-  if (sent) {
+  async function copyRequest() {
+    if (!request) return;
+    try {
+      await navigator.clipboard.writeText(request);
+      setCopyState("copied");
+    } catch {
+      setCopyState("failed");
+    }
+  }
+
+  // A site can't tell whether the visitor's email app actually opened, so this
+  // message covers both outcomes.
+  if (request !== null) {
     return (
       <div className="form-sent" role="status">
-        <h3>Almost there —</h3>
+        <h3>Your request isn&apos;t sent yet</h3>
         <p>
-          Your email draft has opened in your mail app. Press send and we&apos;ll get back
-          to you promptly. Prefer the phone?{" "}
-          <a href={`tel:${site.phoneHref}`}>Call {site.phone}</a> — it&apos;s often the
-          fastest way to schedule.
+          If your email app opened with your request filled in, press Send there and
+          we&apos;ll get back to you. If you don&apos;t hear back, please call.
         </p>
+        <p>
+          If nothing opened, calling{" "}
+          <a href={`tel:${site.phoneHref}`}>{site.phone}</a> is often the fastest way to
+          schedule. Or copy your request and paste it into a new email to{" "}
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+        <p>
+          <button type="button" className="btn btn-ghost" onClick={copyRequest}>
+            {copyState === "copied"
+              ? "Copied — paste it into an email"
+              : copyState === "failed"
+                ? "Couldn't copy — please call us"
+                : "Copy my request"}
+          </button>
+        </p>
+        <p className="form-note">For emergencies, call 911.</p>
       </div>
     );
   }
@@ -124,8 +150,10 @@ export default function ContactForm() {
         Send Visit Request
       </button>
       <p className="form-note">
-        Please don&apos;t include detailed medical history here — we&apos;ll take it over the
-        phone. For emergencies, call 911.
+        This button opens your email app with your request filled in. If you use email in a
+        web browser, such as Gmail, nothing may open. If so, call {site.phone} or use the
+        options on the next screen. Please don&apos;t include detailed medical history
+        here — we&apos;ll take it over the phone. For emergencies, call 911.
       </p>
     </form>
   );

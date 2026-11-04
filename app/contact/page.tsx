@@ -71,7 +71,7 @@ export default function ContactPage() {
                 </span>
                 <span>
                   <strong>{site.email}</strong>
-                  <small>For referrals &amp; records too</small>
+                  <small>For general questions</small>
                 </span>
               </a>
             </div>
