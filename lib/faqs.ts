@@ -45,9 +45,9 @@ export const faqs: Faq[] = [
       "Apollo Wound Care works with Medicare and many major insurance plans. Coverage varies by plan and by service, so call us with your insurance information and we'll verify your benefits before the first visit — no surprises.",
   },
   {
-    question: "How quickly can I be seen?",
+    question: "How quickly can I be seen?",    
     answer:
-      "In most cases we can schedule an initial visit within a few business days, and urgent wounds are prioritized. Call us and we'll find the earliest slot that works for your borough and schedule.",
+      "Apollo Wound Care accepts Original Medicare (Parts A and B). We do not currently accept Medicare Advantage plans or other private health insurance. Self-pay options are also available. Please contact us to discuss coverage and payment options before scheduling a visit.",
   },
   {
     question: "What happens during the first visit?",
