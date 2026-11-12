@@ -38,8 +38,9 @@ export const comboPages: ComboPage[] = [
     serviceSlug: "diabetic-foot-ulcers",
     boroughSlug: "the-bronx",
     title: "Diabetic Foot Ulcer Care in The Bronx | House Calls",
-    metaDescription:
-      "In-home diabetic foot ulcer care across The Bronx — debridement, offloading and advanced dressings from Timothy Donoho, PA. Works with Medicare and many plans.",
+    
+metaDescription:
+  "In-home diabetic foot ulcer care in the Bronx, including debridement, offloading and advanced dressings. Original Medicare accepted.",
     h1: "Diabetic Foot Ulcer Care in The Bronx, at Home.",
     intro:
       "A diabetic foot ulcer in the Bronx is a race against time in a borough that carries one of the heaviest diabetes burdens in New York State. Timothy Donoho, PA brings the full limb-preservation protocol — sharp debridement, offloading, infection surveillance — into Bronx homes from Mott Haven to Wakefield, so treatment never depends on a bus transfer.",
@@ -69,8 +70,8 @@ export const comboPages: ComboPage[] = [
         a: "Visit frequency is set at the first assessment based on the wound's stage, drainage and infection risk — for most active diabetic foot ulcers that means weekly care, sometimes more often. Because visits come to you, the schedule can flex around dialysis and other standing appointments without gaps in treatment.",
       },
       {
-        q: "Does Medicare cover diabetic foot ulcer house calls in the Bronx?",
-        a: "Apollo Wound Care works with Medicare and many major insurance plans, and coverage is verified with your plan before the first visit — so you know where you stand before treatment begins. Call with your insurance information and we'll check your specific plan.",
+        q: "Does Medicare cover diabetic foot ulcer house calls in the Bronx?",     
+        a: "Apollo Wound Care accepts Original Medicare (Parts A and B), subject to eligibility and coverage requirements. We do not currently accept Medicare Advantage plans or other private health insurance. Self-pay options are available. Please contact us to discuss your coverage and payment options before scheduling a visit.",
       },
     ],
   },
@@ -244,7 +245,7 @@ export const comboPages: ComboPage[] = [
     intro:
       "A diabetic foot ulcer doesn't care which exit you live off — and in much of New Jersey, the nearest wound center is a county away. Apollo Wound Care covers all 21 counties with the same in-home diabetic wound protocol, from Bergen County high-rises to Cape May bungalows.",
     whyLocal:
-      "New Jersey runs on cars — and a diabetic foot ulcer takes the keys away. Neuropathy dulls the feedback a driver needs, an offloading boot does not belong on a gas pedal, and many patients are under explicit orders not to bear weight at all. Yet most of the state's wound programs sit on hospital campuses in a few metro corridors, leaving patients in Sussex, Warren, Ocean or Cape May counties an hour or more from care their ulcer needs weekly. Treating the entire state as one service area changes the math: the same diabetic wound protocol — circulation and sensation assessment, sharp debridement when indicated, advanced dressings, offloading strategy — is delivered in Hoboken high-rises, Freehold split-levels and shore bungalows alike. Every visit is documented for your New Jersey podiatrist, endocrinologist and primary care physician, and coverage is checked with your plan before the first appointment, so treatment starts without a road trip attached.",
+      "New Jersey runs on cars — and a diabetic foot ulcer takes the keys away. Neuropathy dulls the feedback a driver needs, an offloading boot does not belong on a gas pedal, and many patients are under explicit orders not to bear weight at all. Yet most of the state's wound programs sit on hospital campuses in a few metro corridors, leaving patients in Sussex, Warren, Ocean or Cape May counties an hour or more from care their ulcer needs weekly. Treating the entire state as one service area changes the math: the same diabetic wound protocol — circulation and sensation assessment, sharp debridement when indicated, advanced dressings, offloading strategy — is delivered in Hoboken high-rises, Freehold split-levels and shore bungalows alike. Every visit is documented for your New Jersey podiatrist, endocrinologist and primary care physician, and Medicare eligibility and applicable coverage are reviewed before the first appointment, so treatment starts without a road trip attached.",
     localFactors: [
       {
         title: "A foot that shouldn't be driving",
@@ -270,7 +271,7 @@ export const comboPages: ComboPage[] = [
       },
       {
         q: "Does insurance cover diabetic foot ulcer house calls in New Jersey?",
-        a: "Apollo Wound Care works with Medicare and many major plans. Coverage is confirmed with your specific plan before the first visit, so there are no surprises — call with your insurance details and we'll verify before anything is scheduled.",
+        a: "Apollo Wound Care accepts Original Medicare (Parts A and B), subject to eligibility and coverage requirements. We do not currently accept Medicare Advantage plans or other private health insurance. Self-pay options are available. Please contact us to discuss your coverage and payment options before scheduling a visit.",
       },
     ],
   },
