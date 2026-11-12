@@ -110,8 +110,8 @@ metaDescription:
         a: "Yes — house calls complement your existing specialists rather than replace them. Timothy Donoho, PA handles the week-to-week wound treatment and sends documentation to your podiatrist, endocrinologist and primary care physician so surgical and medication decisions stay coordinated.",
       },
       {
-        q: "How fast can treatment start for a new diabetic foot ulcer in Brooklyn?",
-        a: "Call and describe the wound — new diabetic foot ulcers are treated as time-sensitive, because the early weeks matter most for protecting the limb. Scheduling is arranged directly by phone, and insurance coverage is confirmed with your plan before the first visit.",
+        q: "How fast can treatment start for a new diabetic foot ulcer in Brooklyn?",       
+a: "Call and describe the wound — new diabetic foot ulcers are treated as time-sensitive, because the early weeks matter most for protecting the limb. Scheduling is arranged directly by phone, and Original Medicare eligibility and applicable coverage are reviewed before the first visit.",
       },
     ],
   },
