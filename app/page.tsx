@@ -90,7 +90,7 @@ export default function HomePage() {
                   <Check /> Licensed PA · NPI {site.provider.npi}
                 </span>
                 <span className="hero-trust-item">
-                  <Check /> Medicare &amp; major plans
+                  <Check /> Original Medicare Accepted
                 </span>
                 <span className="hero-trust-item">
                   <Check /> Hospital-grade care at home
