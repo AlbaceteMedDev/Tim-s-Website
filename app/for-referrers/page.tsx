@@ -49,8 +49,8 @@ const valueProps = [
     copy: "Non-contact UltraMIST® low-frequency ultrasound therapy, human placental (amniotic membrane) allografts from single- to tri-layer, and Microlyte® SAM antimicrobial matrix — the same adjunctive tools used in outpatient wound centers, brought to the patient when standard dressings have stalled. Candidacy and coverage are determined at assessment.",
   },
   {
-    title: "Coverage verification, handled",
-    copy: "We work with Medicare and many major plans and verify the patient's benefits before the first visit — so a referral doesn't turn into a billing surprise for the patient or a callback for you.",
+    title: "Coverage verification, handled",    
+    copy: "Apollo Wound Care accepts Original Medicare. All home visits and wound care procedures are billed as Medicare Part B professional claims. We review Medicare eligibility and applicable coverage requirements before the first visit. Medicare Advantage and other private health insurance plans are not currently accepted.",
   },
   {
     title: "One partner for NYC and all of New Jersey",
@@ -64,8 +64,8 @@ const howItWorks = [
     copy: "Call, email, or use the online request form. Include the patient's name, borough or New Jersey county, and a description of the wound — a written order isn't required to get started, though we'll coordinate one with you when a specific therapy or insurance requires it.",
   },
   {
-    step: "Benefits verified",
-    copy: "We check Medicare and major-plan coverage before the first visit, so coverage questions surface before treatment begins, not after — and we follow up with you or the patient if anything needs clarifying.",
+    step: "Benefits verified",   
+    copy: "We review the patient's Original Medicare Part B eligibility and applicable coverage before the first visit, so any questions about coverage can be addressed before treatment begins.",
   },
   {
     step: "First visit, typically within a few business days",
