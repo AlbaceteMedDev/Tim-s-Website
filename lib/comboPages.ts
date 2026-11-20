@@ -40,7 +40,7 @@ export const comboPages: ComboPage[] = [
     title: "Diabetic Foot Ulcer Care in The Bronx | House Calls",
     
 metaDescription:
-  "In-home diabetic foot ulcer care in the Bronx, including debridement, offloading and advanced dressings. Original Medicare accepted.",
+  "In-home diabetic foot ulcer care in the Bronx, including debridement, offloading and advanced dressings. Original Medicare Part B accepted.",
     h1: "Diabetic Foot Ulcer Care in The Bronx, at Home.",
     intro:
       "A diabetic foot ulcer in the Bronx is a race against time in a borough that carries one of the heaviest diabetes burdens in New York State. Timothy Donoho, PA brings the full limb-preservation protocol — sharp debridement, offloading, infection surveillance — into Bronx homes from Mott Haven to Wakefield, so treatment never depends on a bus transfer.",
@@ -70,8 +70,8 @@ metaDescription:
         a: "Visit frequency is set at the first assessment based on the wound's stage, drainage and infection risk — for most active diabetic foot ulcers that means weekly care, sometimes more often. Because visits come to you, the schedule can flex around dialysis and other standing appointments without gaps in treatment.",
       },
       {
-        q: "Does Medicare cover diabetic foot ulcer house calls in the Bronx?",     
-        a: "Apollo Wound Care accepts Original Medicare (Parts A and B), subject to eligibility and coverage requirements. We do not currently accept Medicare Advantage plans or other private health insurance. Self-pay options are available. Please contact us to discuss your coverage and payment options before scheduling a visit.",
+        q: "Does Medicare cover diabetic foot ulcer house calls in the Bronx?",          
+        a: "Apollo Wound Care accepts Original Medicare and bills home visits and wound care procedures as Medicare Part B professional claims. Coverage depends on Medicare eligibility, medical necessity, and the requirements for the specific treatment. We do not currently accept Medicare Advantage plans or other private health insurance. Self-pay options are available. Please contact us to discuss coverage before scheduling.",
       },
     ],
   },
@@ -240,7 +240,7 @@ a: "Call and describe the wound — new diabetic foot ulcers are treated as time
     boroughSlug: "new-jersey",
     title: "Diabetic Foot Ulcer Care in New Jersey | House Calls",
     metaDescription:
-      "In-home diabetic foot ulcer treatment across all 21 New Jersey counties — debridement, offloading and advanced dressings without the drive. Medicare accepted.",
+      "Diabetic foot ulcer care at home across New Jersey, including debridement, offloading and advanced dressings. Original Medicare Part B accepted.",
     h1: "Diabetic Foot Ulcer Care Across New Jersey, at Home.",
     intro:
       "A diabetic foot ulcer doesn't care which exit you live off — and in much of New Jersey, the nearest wound center is a county away. Apollo Wound Care covers all 21 counties with the same in-home diabetic wound protocol, from Bergen County high-rises to Cape May bungalows.",
@@ -270,8 +270,8 @@ a: "Call and describe the wound — new diabetic foot ulcers are treated as time
         a: "Yes — all 21 counties, from the Hudson waterfront to the shore and the rural northwest. If your address is in New Jersey, it is in the service area; call to arrange a first visit.",
       },
       {
-        q: "Does insurance cover diabetic foot ulcer house calls in New Jersey?",
-        a: "Apollo Wound Care accepts Original Medicare (Parts A and B), subject to eligibility and coverage requirements. We do not currently accept Medicare Advantage plans or other private health insurance. Self-pay options are available. Please contact us to discuss your coverage and payment options before scheduling a visit.",
+        q: "Does insurance cover diabetic foot ulcer house calls in New Jersey?",       
+        a: "Apollo Wound Care accepts Original Medicare. In-home wound care visits and procedures are billed as Medicare Part B professional claims. Coverage for diabetic foot ulcer treatment depends on Medicare eligibility, medical necessity, and applicable coverage requirements. We do not currently accept Medicare Advantage plans or other private health insurance. Self-pay options are available. Please contact us to discuss coverage and payment options.",
       },
     ],
   },
