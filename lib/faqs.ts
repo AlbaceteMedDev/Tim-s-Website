@@ -42,7 +42,7 @@ export const faqs: Faq[] = [
   {
     question: "Do you accept insurance?",
     answer:
-      "Apollo Wound Care accepts Original Medicare (Parts A and B). We do not currently accept Medicare Advantage plans or other private health insurance. Self-pay options are also available. Please contact us to discuss coverage and payment options before scheduling a visit.",
+      "Apollo Wound Care accepts Original Medicare. Our in-home wound care visits and procedures, including debridement, skin substitute applications, and UltraMIST therapy, are billed as Medicare Part B professional claims, not Part A. Coverage for individual treatments depends on Medicare eligibility, medical necessity, and applicable coverage requirements. We do not currently accept Medicare Advantage plans or other private health insurance. Self-pay options are available. Please contact us to discuss coverage and payment options.",
   },
   {
     question: "How quickly can I be seen?",    
