@@ -27,6 +27,8 @@
  * ──────────────────────────────────────────────────────────────────────────
  */
 
+import type { ContentSection, SeoOverrides } from "@/lib/content";
+
 export interface Effect {
   label: string;
   title: string;
@@ -44,7 +46,7 @@ export interface Stat {
   source?: string;
 }
 
-export interface Technology {
+export interface Technology extends SeoOverrides {
   slug: string;
   /** Short nav/label name. */
   shortName: string;
@@ -84,6 +86,13 @@ export interface Technology {
   benefits?: { title: string; copy: string }[];
   /** Global citation/disclaimer footnote for the page. */
   footnote?: string;
+  /**
+   * OPTIONAL extra content blocks, shown after "In plain language" / "At a
+   * glance" and before the footnote. See lib/content.ts and the README
+   * section "Adding content, SEO titles and related cards". The sourcing
+   * rules at the top of this file apply to anything written here.
+   */
+  contentSections?: ContentSection[];
 }
 
 export const technologies: Technology[] = [

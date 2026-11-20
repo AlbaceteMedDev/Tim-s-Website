@@ -43,10 +43,10 @@ fork never reach the live site.
 | Home page text | `app/page.tsx` |
 | Home page title and the default title for every page | `app/layout.tsx` (the `metadata` block near the top) |
 | About, Contact, FAQ, For Referrers, Services, Service Areas, Technology, "Is my wound infected?", and "Non-healing wounds" pages | `page.tsx` inside the matching folder: `app/about/`, `app/contact/`, `app/faq/`, `app/for-referrers/`, `app/services/`, `app/service-areas/`, `app/technology/`, `app/is-my-wound-infected/`, or `app/non-healing-wounds/`. Each page's title and meta description are in the `metadata` block near the top. |
-| Individual service pages | Text: `lib/services.ts`. Title and description: one shared pattern in `app/services/[slug]/page.tsx`. |
-| Borough pages | Text: `lib/boroughs.ts`. Title and description: one shared pattern in `app/service-areas/[borough]/page.tsx`. |
+| Individual service pages | Text: `lib/services.ts`. Title and description: one shared pattern in `app/services/[slug]/page.tsx`, or set `seoTitle` / `seoDescription` on a single page (see "Adding content, SEO titles and related cards"). |
+| Borough pages | Text: `lib/boroughs.ts`. Title and description: one shared pattern in `app/service-areas/[borough]/page.tsx`, or set `seoTitle` / `seoDescription` on a single page. |
 | Service + borough pages (e.g., a service in Brooklyn) | `lib/comboPages.ts`, including each page's own `title` and `metaDescription` |
-| Technology pages | Text: `lib/technology.ts`. Title and description: one shared pattern in `app/technology/[slug]/page.tsx`. |
+| Technology pages | Text: `lib/technology.ts`. Title and description: one shared pattern in `app/technology/[slug]/page.tsx`, or set `seoTitle` / `seoDescription` on a single page. |
 | FAQ questions and answers | `lib/faqs.ts` |
 | Menu and footer | `components/Nav.tsx` and `components/Footer.tsx` |
 | Images and other files | `public/` (see "Images and other files" below) |
@@ -58,6 +58,102 @@ so changing the pattern changes all of them.
 Pages added through the `lib/` files (services, boroughs, technologies, and service +
 borough pages) appear in `sitemap.xml` automatically. A brand-new page under `app/` also
 needs a line in `app/sitemap.ts` and a link from the menu or another page.
+
+### Adding content, SEO titles and related cards
+
+Every page entry in `lib/services.ts`, `lib/boroughs.ts` and `lib/technology.ts` accepts
+a few optional fields. A page that doesn't use them looks exactly as it did before. Add
+them inside the page's entry, on new lines before the closing `},` of that entry. Make
+sure the line above your addition ends with a comma, and copy the commas and brackets in
+the examples exactly.
+
+**Custom title tag and meta description**
+
+```ts
+    seoTitle: "Pressure Injury Treatment at Home in NYC | Apollo Wound Care",
+    seoDescription: "Stage I–IV bedsore care at the bedside across NYC and New Jersey. Original Medicare Part B accepted.",
+```
+
+`seoTitle` replaces the whole title tag exactly as typed. Nothing is added to it, so
+include `| Apollo Wound Care` yourself if you want it there. `seoDescription` replaces
+the meta description. Neither one changes anything visible on the page, including the
+H1. Delete the line, or leave the quotes empty (`""`), to go back to the automatic
+version.
+
+**Extra content sections**
+
+```ts
+    contentSections: [
+      {
+        heading: "How pressure injuries are staged",
+        paragraphs: [
+          "First paragraph. A link looks like this: [diabetic foot ulcer care](/services/diabetic-foot-ulcers).",
+          "Second paragraph, with **a few bold words**.",
+        ],
+        bullets: [
+          "First bullet",
+          "Second bullet, with a link to [Brooklyn](/service-areas/brooklyn)",
+        ],
+        closing: ["An optional paragraph after the list."],
+      },
+      {
+        heading: "A second section",
+        paragraphs: ["Add as many sections as the page needs."],
+      },
+    ],
+```
+
+- Each `{ ... }` block is one section with its own H2. Only `heading` is required;
+  leave out `paragraphs`, `bullets` or `closing` when a section doesn't need them. An
+  optional `eyebrow: "Small label"` prints a small label above the heading.
+- Links are written `[words to click](/page-address)`. For pages on this site, use the
+  address after `apollowoundcare.com`, starting with `/`. Links to other sites start
+  with `https://` and open in a new tab. Don't put spaces, quotes or brackets inside the
+  round brackets. Bold and links can be combined: `**[words](/page-address)**`.
+- Where the sections appear: on service pages after "Who this is for"; on borough pages
+  after "Complex & non-healing wounds"; on technology pages after "In plain language" /
+  "At a glance", before the footnote.
+- The site checks every on-site link when it builds. A link to a page that doesn't exist
+  gives a red ✕ instead of going live, and the error names the bad link. So does a link
+  or bold that was left unfinished. Links to other sites are not checked, so test those
+  yourself.
+- The ground rules for a medical site (below) and the sourcing note at the top of
+  `lib/technology.ts` apply to this content too.
+
+**Choosing the related cards**
+
+Service pages show three cards under "Often paired with", and borough pages show four
+under "Common reasons neighbors call us". To choose them (in `lib/services.ts` and
+`lib/boroughs.ts` only), add `relatedCards`. This example would suit the venous leg
+ulcers page:
+
+```ts
+    relatedCards: [
+      { service: "pressure-injuries" },
+      { service: "diabetic-foot-ulcers", borough: "the-bronx" },
+      {
+        service: "wound-debridement",
+        heading: "Optional custom heading",
+        description: "Optional custom description for this card.",
+      },
+    ],
+```
+
+- `service` is a `slug` from `lib/services.ts`. Add `borough` (a `slug` from
+  `lib/boroughs.ts`) to send the card to that service + borough page instead.
+- The heading and description come from the destination page automatically. Add
+  `heading` or `description` only to replace one of them on that card.
+- Cards appear in the order listed. If you list fewer than the section holds (three or
+  four), the remaining places are filled with default cards for services you haven't
+  already listed.
+- A service page can't list itself, so leave out the page you are editing. A card with a
+  `borough` can point to any borough's page, so check it suits the page it sits on.
+- Only service + borough pages that exist in `lib/comboPages.ts` can be used. A pair
+  with no page, a misspelled slug, the same card twice, too many cards, or a service
+  page pointing to itself gives a red ✕ instead of going live, and the error says which
+  entry to fix.
+
+To read the error behind a red ✕, click the ✕ next to the commit, then **Details**.
 
 ### Tips that prevent most mistakes
 

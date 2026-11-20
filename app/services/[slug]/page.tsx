@@ -4,9 +4,12 @@ import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
 import CTABand from "@/components/CTABand";
+import ContentSections from "@/components/ContentSections";
 import { services, getService } from "@/lib/services";
 import { boroughs } from "@/lib/boroughs";
 import { getCombo } from "@/lib/comboPages";
+import { filled } from "@/lib/content";
+import { resolveRelatedCards } from "@/lib/related";
 import { site } from "@/lib/site";
 
 interface Props {
@@ -22,8 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: `${service.name} at Home in NYC`,
-    description: `${service.teaser} House calls by ${site.provider.fullTitle} across all five NYC boroughs and New Jersey.`,
+    title: filled(service.seoTitle)
+      ? { absolute: filled(service.seoTitle)! }
+      : `${service.name} at Home in NYC`,
+    description:
+      filled(service.seoDescription) ??
+      `${service.teaser} House calls by ${site.provider.fullTitle} across all five NYC boroughs and New Jersey.`,
     alternates: { canonical: `/services/${service.slug}` },
   };
 }
@@ -32,6 +39,15 @@ export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
   const service = getService(slug);
   if (!service) notFound();
+
+  const where = `lib/services.ts → "${service.slug}"`;
+  const relatedCards = resolveRelatedCards({
+    where,
+    custom: service.relatedCards,
+    defaults: services.filter((s) => s.slug !== service.slug),
+    count: 3,
+    ownServiceSlug: service.slug,
+  });
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -171,28 +187,27 @@ export default async function ServicePage({ params }: Props) {
         </div>
       </section>
 
+      <ContentSections sections={service.contentSections} where={where} />
+
       <section className="section section-tint">
         <div className="container">
           <Reveal>
             <span className="eyebrow">Related services</span>
             <h2 className="section-title">Often paired with</h2>
           </Reveal>
-          <div className="grid-cards">
-            {services
-              .filter((s) => s.slug !== service.slug)
-              .slice(0, 3)
-              .map((s, i) => (
-                <Reveal key={s.slug} delay={i * 0.07}>
-                  <Link href={`/services/${s.slug}`} className="card service-card">
-                    <ServiceIcon icon={s.icon} />
-                    <h3>{s.shortName}</h3>
-                    <p>{s.teaser}</p>
-                    <span className="card-link">
-                      Learn more <span aria-hidden="true">→</span>
-                    </span>
-                  </Link>
-                </Reveal>
-              ))}
+          <div className="grid-cards grid-cards-3">
+            {relatedCards.map((card, i) => (
+              <Reveal key={card.key} delay={i * 0.07}>
+                <Link href={card.href} className="card service-card">
+                  <ServiceIcon icon={card.icon} />
+                  <h3>{card.heading}</h3>
+                  <p>{card.description}</p>
+                  <span className="card-link">
+                    Learn more <span aria-hidden="true">→</span>
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

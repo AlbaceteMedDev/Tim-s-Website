@@ -6,8 +6,10 @@ import ResultStat from "@/components/ResultStat";
 import DeviceShowcase from "@/components/DeviceShowcase";
 import MistDemo from "@/components/MistDemo";
 import CTABand from "@/components/CTABand";
+import ContentSections from "@/components/ContentSections";
 import StitchDivider from "@/components/StitchDivider";
 import { technologies, getTechnology } from "@/lib/technology";
+import { filled } from "@/lib/content";
 import { site } from "@/lib/site";
 
 interface Props {
@@ -23,8 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = getTechnology(slug);
   if (!t) return {};
   return {
-    title: `${t.name} at Home in NYC`,
-    description: `${t.teaser} Delivered in the home across NYC and New Jersey by ${site.provider.fullTitle}.`,
+    title: filled(t.seoTitle)
+      ? { absolute: filled(t.seoTitle)! }
+      : `${t.name} at Home in NYC`,
+    description:
+      filled(t.seoDescription) ??
+      `${t.teaser} Delivered in the home across NYC and New Jersey by ${site.provider.fullTitle}.`,
     alternates: { canonical: `/technology/${t.slug}` },
   };
 }
@@ -251,6 +257,11 @@ export default async function TechnologyDetail({ params }: Props) {
           </Reveal>
         </div>
       </section>
+
+      <ContentSections
+        sections={t.contentSections}
+        where={`lib/technology.ts → "${t.slug}"`}
+      />
 
       {t.footnote && (
         <section className="section" style={{ paddingTop: 0 }}>

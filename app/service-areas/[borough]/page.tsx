@@ -4,9 +4,12 @@ import { notFound } from "next/navigation";
 import Reveal from "@/components/Reveal";
 import ServiceIcon from "@/components/ServiceIcon";
 import CTABand from "@/components/CTABand";
+import ContentSections from "@/components/ContentSections";
 import StitchDivider from "@/components/StitchDivider";
 import { boroughs, getBorough } from "@/lib/boroughs";
 import { getCombo } from "@/lib/comboPages";
+import { filled } from "@/lib/content";
+import { resolveRelatedCards } from "@/lib/related";
 import { services } from "@/lib/services";
 import { technologies } from "@/lib/technology";
 import { site } from "@/lib/site";
@@ -24,8 +27,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const borough = getBorough(slug);
   if (!borough) return {};
   return {
-    title: `${borough.headline} — House Calls by a Wound Specialist`,
-    description: `${borough.intro.slice(0, 155)}…`,
+    title: filled(borough.seoTitle)
+      ? { absolute: filled(borough.seoTitle)! }
+      : `${borough.headline} — House Calls by a Wound Specialist`,
+    description:
+      filled(borough.seoDescription) ?? `${borough.intro.slice(0, 155)}…`,
     alternates: { canonical: `/service-areas/${borough.slug}` },
   };
 }
@@ -34,6 +40,14 @@ export default async function BoroughPage({ params }: Props) {
   const { borough: slug } = await params;
   const borough = getBorough(slug);
   if (!borough) notFound();
+
+  const where = `lib/boroughs.ts → "${borough.slug}"`;
+  const relatedCards = resolveRelatedCards({
+    where,
+    custom: borough.relatedCards,
+    defaults: services,
+    count: 4,
+  });
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -180,6 +194,8 @@ export default async function BoroughPage({ params }: Props) {
         </div>
       </section>
 
+      <ContentSections sections={borough.contentSections} where={where} />
+
       <section className="section section-tint">
         <div className="container">
           <Reveal>
@@ -187,12 +203,12 @@ export default async function BoroughPage({ params }: Props) {
             <h2 className="section-title">Common reasons neighbors call us.</h2>
           </Reveal>
           <div className="grid-cards">
-            {services.slice(0, 4).map((s, i) => (
-              <Reveal key={s.slug} delay={i * 0.06}>
-                <Link href={`/services/${s.slug}`} className="card service-card">
-                  <ServiceIcon icon={s.icon} />
-                  <h3>{s.shortName}</h3>
-                  <p>{s.teaser}</p>
+            {relatedCards.map((card, i) => (
+              <Reveal key={card.key} delay={i * 0.06}>
+                <Link href={card.href} className="card service-card">
+                  <ServiceIcon icon={card.icon} />
+                  <h3>{card.heading}</h3>
+                  <p>{card.description}</p>
                   <span className="card-link">
                     Learn more <span aria-hidden="true">→</span>
                   </span>

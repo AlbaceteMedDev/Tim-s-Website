@@ -1,4 +1,6 @@
-export interface Borough {
+import type { ContentSection, RelatedCard, SeoOverrides } from "@/lib/content";
+
+export interface Borough extends SeoOverrides {
   slug: string;
   name: string;
   /** e.g. "Brooklyn, NY" */
@@ -11,6 +13,15 @@ export interface Borough {
   counties?: string[];
   /** Borough-specific paragraph about why house calls matter there. */
   whyHouseCalls: string;
+  /**
+   * OPTIONAL extras — see lib/content.ts and the README section "Adding
+   * content, SEO titles and related cards". Leave any of them out to keep
+   * the page as it is.
+   */
+  /** Extra content blocks, shown after "Complex & non-healing wounds". */
+  contentSections?: ContentSection[];
+  /** Hand-picked "Common reasons neighbors call us" cards (up to 4), in the order listed. */
+  relatedCards?: RelatedCard[];
 }
 
 export const boroughs: Borough[] = [

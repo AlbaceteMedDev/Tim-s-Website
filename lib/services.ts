@@ -1,4 +1,6 @@
-export interface Service {
+import type { ContentSection, RelatedCard, SeoOverrides } from "@/lib/content";
+
+export interface Service extends SeoOverrides {
   slug: string;
   name: string;
   shortName: string;
@@ -12,6 +14,15 @@ export interface Service {
   bestFor: string[];
   /** Icon key rendered by <ServiceIcon /> */
   icon: "foot" | "bed" | "vein" | "artery" | "suture" | "shield" | "scalpel" | "pump";
+  /**
+   * OPTIONAL extras — see lib/content.ts and the README section "Adding
+   * content, SEO titles and related cards". Leave any of them out to keep
+   * the page as it is.
+   */
+  /** Extra content blocks, shown after "Who this is for". */
+  contentSections?: ContentSection[];
+  /** Hand-picked "Often paired with" cards (up to 3), in the order listed. */
+  relatedCards?: RelatedCard[];
 }
 
 export const services: Service[] = [
