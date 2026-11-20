@@ -92,7 +92,7 @@ export default async function ServicePage({ params }: Props) {
             </div>
             <div className="fact">
               <dt>Insurance</dt>
-              <dd>Verified before visit one</dd>
+              <dd>Original Medicare (Part B)</dd>
             </div>
           </dl>
         </div>
